@@ -123,6 +123,19 @@ body {
     overflow: hidden; /* esconde elementos fora */
     width: 100%;
 
+    .overlay {
+        position: absolute;     /* ou fixed se quiser que fique parado na tela */
+        top: 2rem;             /* posição vertical */
+        left: -0.3rem;             /* posição horizontal */
+        width: 12.3rem;           /* largura da área */
+        height: 12.3rem;          /* altura da área */
+        background: var(--branco); /* preto com opacidade */
+        z-index: 998;           /* fica por cima de tudo */
+        pointer-events: none;   /* importante: não bloqueia cliques */
+        border-radius: 1.5rem;
+        opacity: 0.5; /* padrão: mais apagado */
+    }
+
     /* ocupa toda a largura */
     .siema {
         display: block;/* impede o flex de amassar */
@@ -163,6 +176,10 @@ body {
         }
     }
 
+    .card.active {
+        opacity: 1; /* o card "central" fica 100% visível */
+      }
+
     /* Botões de navegação (setas esquerda/direita) */
     button {
         position: absolute;
@@ -191,8 +208,8 @@ body {
         /* garante que fique acima dos cards */
     }
 
-    button:hover {
-        background: var(--branco);
+    button {
+        background: var(--ciano-claro);
         /* mantém o fundo branco no hover */
     }
 

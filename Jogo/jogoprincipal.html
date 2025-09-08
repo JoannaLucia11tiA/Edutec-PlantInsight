@@ -72,13 +72,25 @@
                 </div>
                 <div class="vida">
                     <h2>Vida: </h2>
-                    <img class="vida-0" src="../Jogo/assets.jogos/corcaovida.png" alt="coração de vida">
-                    <img class="vidas-1" src="../Jogo/assets.jogos/corcaovida.png" alt="coração de vida">
-                    <img class="vidas-2" src="../Jogo/assets.jogos/corcaovida.png" alt="coração de vida">
+                    <img class="vida-0" id="heart1" src="../Jogo/assets.jogos/corcaovida.png" alt="coração de vida">
+                    <img class="vidas-1" id="heart2" src="../Jogo/assets.jogos/corcaovida.png" alt="coração de vida">
+                    <img class="vidas-2"  id="heart3" src="../Jogo/assets.jogos/corcaovida.png" alt="coração de vida">
                 </div>
             </div>
         </div>
-        
+        <script src="./vidas.js"></script>
+        <script>
+         
+                        const vidasAtuais = getVidas()
+                        const heart1 = document.getElementById("heart1")
+                        const heart2 = document.getElementById("heart2")
+                        const heart3 = document.getElementById("heart3")
+
+                        heart1.src = vidasAtuais == 0 ? "assets.jogos/perdeucoracao.png":"assets.jogos/corcaovida.png"
+                        heart2.src = vidasAtuais < 2 ? "assets.jogos/perdeucoracao.png":"assets.jogos/corcaovida.png"
+                        heart3.src = vidasAtuais < 3 ? "assets.jogos/perdeucoracao.png":"assets.jogos/corcaovida.png"
+
+        </script>
         <script src="./jogoprincipal.js"></script>
 </body>
 </html>

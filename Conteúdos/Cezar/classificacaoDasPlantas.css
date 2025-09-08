@@ -12,10 +12,19 @@
   text-align: center;
   margin: 40px auto 20px;
 }
-
+.p1{
+  display: flex;
+  justify-content: left;
+} 
+p2{
+  display: flex;
+  justify-content: right;
+}
 .titulo h3 {
   font-size: 20px;
   color: #3d5a40;
+  display: flex ;
+  justify-content: center;
 }
 
 .titulo h2 {
@@ -25,7 +34,7 @@
   color: #2d2d2d;
 }
 
-/* ---------------- ICONES ---------------- */
+
 .icones {
   display: flex;
   justify-content: center;

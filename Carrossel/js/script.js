@@ -6,9 +6,24 @@ const carrossel = new Siema({
     1024: 3     // acima de 1024px → 3 cards
   },
   easing: 'ease-out',
-  draggable: true
+  draggable: true,
+  onInit: highlightCards,
+  onChange: highlightCards
 });
 
+function highlightCards() {
+  const cards = document.querySelectorAll('.card');
+  cards.forEach(card => card.classList.remove('active'));
+
+  // pega o índice do card central
+  let centerIndex = carrossel.currentSlide;
+
+  // aplica "active" só nos cards visíveis no centro
+  for (let i = 0; i < carrossel.perPage; i++) {
+    let index = (centerIndex + i) % cards.length;
+    cards[index].classList.add('active');
+  }
+}
 function addEvents() {
     const buttonPrev = document.querySelector(".prev")
     const buttonNext = document.querySelector(".next")

@@ -1,3 +1,5 @@
+
+
 localStorage.setItem("faseAnterior", 1); 
 const textoPergunta = document.getElementById("texto-pergunta")
 const opcoesRespostas = Array.from(document.getElementsByClassName('opcao-texto'))
@@ -6,7 +8,6 @@ console.log(opcoesRespostas)
 let fase = parseInt(localStorage.getItem("faseAtual")) || 1
 let questaoAtual = {}
 let aceitandoRespostas = false
-let vidas = 3
 let contadorQuestao = 0
 let questoesDisponiveis = []
 
@@ -335,8 +336,7 @@ opcoesRespostas.forEach(opcao => {
 
 } else {
     localStorage.setItem('resultadoPergunta', 'errado');
-    vidas--
-    localStorage.setItem("vidas", vidas)
+    removeVida()
 }
 
   opcoesRespostas.forEach(botao => botao.disabled = true)

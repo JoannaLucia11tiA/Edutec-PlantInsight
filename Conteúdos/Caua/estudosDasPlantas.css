@@ -6,6 +6,7 @@
 
 :root {
     --branco: #FFF;
+    --cor-fundo: #F7F8F8;
     --preto: #000000;
     --azul-cadete: #4FADAF;
     --azul-verde: #408283;
@@ -16,6 +17,7 @@
     --verde-musgo: #606E1C;
     --verde-claro: #DEF6B1;
     --azul-cinza: #486794;
+    --azul: #397997;
 }
 
 .conteudo {
@@ -72,7 +74,7 @@
     font-size: 2rem;
     text-align: center;
 
-    background-color: var(--verde-green);
+    background-color: var(--azul);
     padding: 2.4rem 8rem;
     margin: 0.4rem 8rem 6.9rem 8rem;
     border-radius: 1.5rem;
