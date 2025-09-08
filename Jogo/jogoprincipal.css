@@ -76,6 +76,10 @@ header{
     background-color: var(--azul-fases);
     border-radius: 1.5rem;
     font-size: 1.9rem;
+    width: 7rem;
+    img{
+        width: 2rem;
+    }
     padding-inline: 3rem;
     margin-bottom: 1rem;
     margin-right: 1.6rem;
@@ -156,6 +160,8 @@ header{
     justify-content: center;
     align-items: center;
     z-index: 9999;
+
+
     
   }
   
@@ -221,6 +227,9 @@ header{
     border-radius: 1rem;
     text-align: center;
     width: 400px;
+
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
   }
   
 

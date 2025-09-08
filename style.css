@@ -21,6 +21,10 @@
     --green-light: #E6F6F4;
     --azul-cinza: #486794;
 }
+
+.imagem-fundo{
+    background-image: none;
+}
  
  
 body{

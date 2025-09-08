@@ -1,296 +1,182 @@
 localStorage.setItem("faseAnterior", 2);
 
-var draggedElement = null
-var items
-let questoesDisponiveis = []
-let contadorQuestao = 0
+let draggedElement = null;
+let acertosFase = 0;
 
-function handleDragStart(e){
-  this.style.opacity = "0.4"
-  draggedElement = this
+// Desafios disponíveis no jogo
+const desafios = [
+    { id: 1, imagem: "sol.png", respostaImg: "plantadrop.png", resultado: "Fotossíntese" },
+    { id: 2, imagem: "agua.png", respostaImg: "raizdrop.png", resultado: "Absorção de nutrientes" },
+    { id: 4, imagem: "flordrop.png", resultado: "Polinização", respostaImg: "abelha.png" },
+    { id: 5, imagem: "sementedrop.png", resultado: "Germinação", respostaImg: "soloterrenodrop.png" },
+    { id: 6, imagem: "folhadrop.png", resultado: "Fotossíntese", respostaImg: "clorosplasto.png" },
+    { id: 7, imagem: "ventodrop.png", resultado: "Dispersão", respostaImg: "polendrop.png" },
+    { id: 8, imagem: "macafrutodrop.png", resultado: "Dispersão de sementes", respostaImg: "esquilodrop.png" },
+    { id: 9, imagem: "xilemadrop.png", resultado: "Transporte para a planta", respostaImg: "agua.png" },
+    { id: 10, imagem: "floemadrop.png", resultado: "Distribuição pela planta", respostaImg: "nutrientesdrop.png" },
+    { id: 13, imagem: "sol.png", resultado: "Produção de energia", respostaImg: "clorosplasto.png" },
+    { id: 15, imagem: "musgo.png", resultado: "Reprodução eficiente", respostaImg: "humidade.png" },
+    { id: 17, imagem: "cauledrop.png", resultado: "Estrutura da planta", respostaImg: "sustentacaodrop.png" },
+    { id: 22, imagem: "cauledrop.png", resultado: "Transporte de substâncias", respostaImg: "ceivadrop.png" },
+    { id: 26, imagem: "flordrop.png", resultado: "Formação do fruto", respostaImg: "ovulofecundadodrop.png" },
+    { id: 29, imagem: "raizdrop.png", resultado: "Geotropismo", respostaImg: "gravidade.png" },
+];
 
-  e.dataTransfer.effectAllowed = "move"
-  e.dataTransfer.setData("item", this.innerHTML)
+// --- Funções de Drag and Drop ---
+
+function handleDragStart(e) {
+    this.style.opacity = "0.4";
+    draggedElement = this; // O elemento arrastado é a própria imagem
+    e.dataTransfer.effectAllowed = "move";
+    e.dataTransfer.setData("text/plain", this.src);
 }
 
-function handleDragOver(e){
-  if(e.preventDefault)
-    e.preventDefault()
-
-  e.dataTransfer.dropEffect = "move"
-  return false
-  
-}
-function handleDragEnter(e){
-  this.classList.add("dragover")
+function handleDragOver(e) {
+    e.preventDefault();
+    e.dataTransfer.dropEffect = "move";
 }
 
-function handleDragLeave(e){
-  this.classList.remove("dragover")
+function handleDragEnter(e) {
+    this.classList.add("dragover");
+}
+
+function handleDragLeave(e) {
+    this.classList.remove("dragover");
 }
 
 function handleDrop(e) {
-  if (e.stopPropagation) e.stopPropagation();
-
-  if (draggedElement !== this) {
-    let draggedImg = draggedElement.querySelector("img");
-    let targetImg = this.querySelector("img");
-
-    // Troca apenas o src das imagens
-    let tempSrc = draggedImg.src;
-    draggedImg.src = targetImg.src;
-    targetImg.src = tempSrc;
-  }
-}
-
-
-function handleDragEnd(e){
-  this.style.opacity = "1"
-
-  items.forEach(function(item){
-    item.classList.remove("dragover")
-  })
-}
-
-document.addEventListener("DOMContentLoaded", event => {
-  items = document.querySelectorAll(".container .box")
-
-
-  items.forEach(function(item){
-    item.addEventListener("dragstart", handleDragStart)
-    item.addEventListener("dragenter", handleDragEnter)
-    item.addEventListener("dragover", handleDragOver)
-    item.addEventListener("dragleave", handleDragLeave)
-    item.addEventListener("drop", handleDrop)
-    item.addEventListener("dragend", handleDragEnd)
-  })
-})
-/*-------------------------------------------------------------*/
-
-
-const desafios = [
-  { id: 1, 
-    imagem: "sol.png",
-    respostaImg: "plantadrop.png", 
-    resultado: "Fotossíntese",  
-   },
-  { id: 2, 
-    imagem: "agua.png", 
-    respostaImg: "raizdrop.png", 
-    resultado: "Absorção de nutrientes", 
-    },
-  { id: 3, 
-    imagem: "co2drop.png",
-    respostaImg: "sol.png", 
-    resultado: "Produção de oxigênio", 
-     },
-  { id: 4, 
-    imagem: "flordrop.png", 
-    resultado: "Polinização", 
-    respostaImg: "abelha.png" },
-  { id: 5, 
-    imagem: "sementedrop.png", 
-    resultado: "Germinação", 
-    respostaImg: "soloterrenodrop.png" },
-  { id: 6, 
-    imagem: "folhadrop.png", 
-    resultado: "Fotossíntese",   
-    respostaImg: "clorosplasto.png" },
-  { id: 7, 
-    imagem: "ventodrop.png", 
-    resultado: "Dispersão",  
-    respostaImg: "polendrop.png" },
-  { id: 8, 
-    imagem: "macafrutodrop.png", 
-    resultado: "Dispersão de sementes",  
-    respostaImg: "esquilodrop.png" },
-  { id: 9, 
-    imagem: "xilemadrop.png", 
-    resultado: "Transporte para a planta", 
-    respostaImg: "agua.png" },
-  { id: 10, 
-    imagem: "floemadrop.png", 
-    resultado: "Distribuição pela planta",  
-    respostaImg: "nutrientesdrop.png" },
-  { id: 11, 
-    imagem: "raizdrop.png", 
-    resultado: "Fixação da planta", 
-    respostaImg: "soloterrenodrop.png" },
-  { id: 12, 
-    imagem: "agua.png", 
-    resultado: "Resfriamento da planta",  
-    respostaImg: "transpiracaofolhadrop.png" },
-  { id: 13, 
-    imagem: "sol.png", 
-    resultado: "Produção de energia",  
-    respostaImg: "clorosplasto.png" },
-  { id: 14, 
-    imagem: "folhadrop.png", 
-    resultado: "Entrada para fotossíntese", 
-    respostaImg: "co2drop.png" },
-  { id: 15, 
-    imagem: "musgo.png", 
-    resultado: "Reprodução eficiente", 
-    respostaImg: "humidade.png" },
-  { id: 16, 
-    imagem: "plantadrop.png", 
-    resultado: "Crescimento saudável", 
-    respostaImg: "soloterrenodrop.png" },
-  { id: 17, 
-    imagem: "cauledrop.png", 
-    resultado: "Estrutura da planta", 
-    respostaImg: "sustentacaodrop.png" },
-  { id: 18, 
-    imagem: "raizdrop.png", 
-    resultado: "Fixação da planta", 
-    respostaImg: "soloterrenodrop.png" },
-  { id: 19, 
-    imagem: "folhadrop.png", 
-    resultado: "Observação do crescimento", 
-    respostaImg: "sol.png" },
-  { id: 20, 
-    imagem: "plantadrop.png", 
-    resultado: "Distribuição geográfica",  
-    respostaImg: "climas.png" },
-  { id: 21, 
-    imagem: "raizdrop.png", 
-    resultado: "Absorção de nutrientes",  
-    respostaImg: "agua.png" },
-  { id: 22, 
-    imagem: "cauledrop.png", 
-    resultado: "Transporte de substâncias",   
-    respostaImg: "ceivadrop.png" },
-  { id: 23, 
-    imagem: "folhadrop.png", 
-    resultado: "Fotossíntese",  
-    respostaImg: "clorosplasto.png" },
-  { id: 24, 
-    imagem: "flordrop.png", 
-    resultado: "Polinização", 
-    respostaImg: "abelha.png" },
-  { id: 25, 
-    imagem: "sementedrop.png", 
-    resultado: "Germinação", 
-    respostaImg: "soloterrenodrop.png" },
-  { id: 26, 
-    imagem: "flordrop.png", 
-    resultado: "Formação do fruto", 
-    respostaImg: "ovulofecundadodrop.png" },
-  { id: 27, 
-    imagem: "polendrop.png", 
-    resultado: "Polinização anemófila",  
-    respostaImg: "ventodrop.png" },
-  { id: 28, 
-    imagem: "musgo.png", 
-    resultado: "Reprodução eficiente", 
-    respostaImg: "humidade.png" },
-  { id: 29, 
-    imagem: "raizdrop.png", 
-    resultado: "Geotropismo",  
-    respostaImg: "gravidade.png" },
-  { id: 30, 
-    imagem: "formadrop.png", 
-    resultado: "Morfologia vegetal",  
-    respostaImg: "folhadrop.png" },
-  { id: 31, 
-    imagem: "flordrop.png", 
-    resultado: "Compostos químicos atraentes",  
-    respostaImg: "fragancia.png" }
-];
-//------------------------------------------------------------------------------------------
-const comecarJogo = () => {
-  contadorQuestao = 0;
-  questoesDisponiveis = [...desafios];
-  let questoesEscolhidas = []
-  let numeroQuestoesEscolhidas = 0
-  while (numeroQuestoesEscolhidas < 3) {
-    let indiceAleatorio = Math.floor(Math.random() * questoesDisponiveis.length);
-    if (!questoesEscolhidas.includes(questoesDisponiveis[indiceAleatorio])) {
-      questoesEscolhidas.push(questoesDisponiveis[indiceAleatorio]);
-      numeroQuestoesEscolhidas++
-    }
-    
-  }
-
-  const opcoes = document.querySelectorAll(".container .desafio");
-  const baloes = document.querySelectorAll(".soltarOpcoes .balao > img");
-  const respostas = document.querySelectorAll(".soltarOpcoes .balao > h3");
-
-
-  opcoes.forEach((opcao, index) => {
-    if (questoesEscolhidas[index]) {
-      opcao.src = `assets.jogos/${questoesEscolhidas[index].imagem}`;
-    }
-  });
-  baloes.forEach((opcao, index) => {
-    if (questoesEscolhidas[index]) {
-      opcao.src = `assets.jogos/${questoesEscolhidas[index].respostaImg}`;
-
-      // 🔹 Salva a resposta certa no dropzone correspondente
-    document.getElementById(`dropzone${index+1}`).dataset.respostaCorreta = questoesEscolhidas[index].respostaImg;
-    }
-  });
-  respostas.forEach((opcao, index) => {
-    if (questoesEscolhidas[index]) {
-      opcao.textContent = questoesEscolhidas[index].resultado;
-    }
-  });
-  
-};
-// 🔹 Listeners das áreas de soltar
-document.querySelectorAll(".areasoltar").forEach(area => {
-  area.addEventListener("dragover", e => e.preventDefault());
-  area.addEventListener("drop", e => {
     e.preventDefault();
-    area.innerHTML = "";
-    let draggedImg = draggedElement.querySelector("img").cloneNode(true);
-    area.appendChild(draggedImg);
+    this.classList.remove("dragover");
 
-    // 🔹 Conferir se acertou
-    let respostaJogador = draggedImg.src.split("/").pop(); // só o nome do arquivo
-    let respostaCorreta = area.dataset.respostaCorreta;
+    if (draggedElement) {
+        // Pega o nome do arquivo da imagem arrastada
+        const respostaJogador = draggedElement.src.split("/").pop();
+        // Pega a resposta correta armazenada no dropzone
+        const respostaCorreta = this.dataset.respostaCorreta;
 
-    if (respostaJogador === respostaCorreta) {
-      area.dataset.acertou = "true";
-    } else {
-      area.dataset.acertou = "false";
+        // Limpa a área de soltar e adiciona a imagem arrastada
+        this.innerHTML = "";
+        this.appendChild(draggedElement);
+        draggedElement.style.opacity = "1"; // Garante que a opacidade volte ao normal
+
+        // Verifica se a resposta está correta
+        if (respostaJogador === respostaCorreta) {
+            this.dataset.acertou = "true";
+        } else {
+            this.dataset.acertou = "false";
+        }
+        
+        draggedElement = null; // Limpa o elemento arrastado
+        verificarDropzones(); // Verifica se todos os dropzones foram preenchidos
     }
+}
 
-    verificarDropzones();
-  });
-});
+function handleDragEnd(e) {
+    // Se o elemento não foi solto em um alvo válido, ele retorna à opacidade normal
+    if (draggedElement) {
+        draggedElement.style.opacity = "1";
+    }
+    // Remove a classe de highlight de todos os dropzones
+    document.querySelectorAll(".areasoltar").forEach(area => area.classList.remove("dragover"));
+}
 
-function verificarDropzones() {
-  const dz1 = document.getElementById("dropzone1");
-  const dz2 = document.getElementById("dropzone2");
-  const dz3 = document.getElementById("dropzone3");
 
-  if (dz1.innerHTML.trim() !== "<h2>?</h2>" &&
-      dz2.innerHTML.trim() !== "<h2>?</h2>" &&
-      dz3.innerHTML.trim() !== "<h2>?</h2>") {
+// --- Lógica do Jogo ---
 
-    // 🔹 Conta os acertos da fase
-    let acertosFase = 0;
-    [dz1, dz2, dz3].forEach(dz => {
-      if (dz.dataset.acertou === "true") acertosFase++;
+// Função para embaralhar um array (algoritmo de Fisher-Yates)
+function shuffle(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+}
+
+const comecarJogo = () => {
+    acertosFase = 0; // Reseta os acertos da fase
+    const desafiosDisponiveis = [...desafios];
+    
+    // Escolhe 3 desafios aleatórios sem repetição
+    const questoesEscolhidas = shuffle(desafiosDisponiveis).slice(0, 3);
+    
+    // Pega as 3 respostas corretas e embaralha para as opções
+    const opcoesRespostas = shuffle(questoesEscolhidas.map(q => q.respostaImg));
+
+    const desafiosImagens = document.querySelectorAll(".soltarOpcoes .balao > img");
+    const respostasTexto = document.querySelectorAll(".soltarOpcoes .balao > h3");
+    const dropzones = document.querySelectorAll(".areasoltar");
+    const opcoesImagens = document.querySelectorAll(".desafio-opcao");
+
+    // Preenche os desafios e as áreas de soltar
+    questoesEscolhidas.forEach((questao, index) => {
+        // Define a imagem do desafio (ex: sol.png)
+        desafiosImagens[index].src = `assets.jogos/${questao.imagem}`;
+        desafiosImagens[index].alt = questao.resultado;
+
+        // Define o texto do resultado (ex: Fotossíntese)
+        respostasTexto[index].textContent = questao.resultado;
+
+        // Armazena a resposta correta no dataset do dropzone correspondente
+        dropzones[index].dataset.respostaCorreta = questao.respostaImg;
+        dropzones[index].dataset.acertou = "false"; // Inicializa como falso
+        dropzones[index].innerHTML = '<h2>?</h2>'; // Reseta o conteúdo
     });
 
-    // 🔹 Pega o total de acertos anterior do localStorage
-    let totalAcertos = parseInt(localStorage.getItem("totalAcertos")) || 0;
+    // Preenche as opções de resposta arrastáveis
+    opcoesImagens.forEach((opcao, index) => {
+        if (opcoesRespostas[index]) {
+            opcao.src = `assets.jogos/${opcoesRespostas[index]}`;
+            opcao.style.opacity = "1"; // Garante que a imagem esteja visível
+            // Adiciona a imagem de volta ao seu container original se necessário
+            document.querySelectorAll(".container .box")[index].appendChild(opcao);
+        }
+    });
+};
 
-    // 🔹 Soma os acertos da fase ao total
-    totalAcertos += acertosFase;
+function verificarDropzones() {
+    const dropzones = document.querySelectorAll(".areasoltar");
+    const todasPreenchidas = [...dropzones].every(dz => dz.querySelector("img"));
 
-    // 🔹 Salva o novo total no localStorage
-    localStorage.setItem("totalAcertos", totalAcertos);
+    if (todasPreenchidas) {
+        // Conta os acertos da fase
+        acertosFase = [...dropzones].filter(dz => dz.dataset.acertou === "true").length;
 
-    // Mostra botão de continuar
-    document.getElementById("button-continuar").innerHTML = `
+        // Pega o total de acertos anterior do localStorage
+        let totalAcertos = parseInt(localStorage.getItem("totalAcertos")) || 0;
+
+        // Soma os acertos da fase ao total
+        totalAcertos += acertosFase;
+
+        // Salva o novo total e os acertos da fase no localStorage
+        localStorage.setItem("totalAcertos", totalAcertos);
+        localStorage.setItem("acertosFase", acertosFase);
+
+
+        // Mostra botão de continuar
+        document.getElementById("button-continuar").innerHTML = `
       <a href="popup.html">
         <button class="button-continuar">Continuar</button>
       </a>
     `;
-  }
+    }
 }
 
-comecarJogo();
+// Roda o código quando o HTML estiver totalmente carregado
+document.addEventListener("DOMContentLoaded", () => {
+    const opcoesArrastaveis = document.querySelectorAll(".desafio-opcao");
+    const areasSoltar = document.querySelectorAll(".areasoltar");
+
+    opcoesArrastaveis.forEach(opcao => {
+        opcao.addEventListener("dragstart", handleDragStart);
+        opcao.addEventListener("dragend", handleDragEnd);
+    });
+
+    areasSoltar.forEach(area => {
+        area.addEventListener("dragover", handleDragOver);
+        area.addEventListener("dragenter", handleDragEnter);
+        area.addEventListener("dragleave", handleDragLeave);
+        area.addEventListener("drop", handleDrop);
+    });
+
+    comecarJogo();
+});

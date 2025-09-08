@@ -160,58 +160,72 @@ h1 {
      box-sizing: border-box; 
     } 
     
-    .texto-1, .texto-2 { 
-        width: 48%;
-     } 
-        
-        .processos-vitais h2 { 
-            margin-bottom: 1.5rem; 
-            font-size: 1.6rem; 
-            font-size: 2rem; 
-        } 
-        
-        .processos-vitais p { 
-            text-align: justify; 
-            margin-bottom: 1rem; 
-        }
-
-
-   /* Títulos */ 
-        
-   h2 { 
-    font-size: 1.4rem; 
-    font-weight: 1rem; 
-    margin: 1.5rem 0 0.8rem; 
-    color: var(--azul-opcao); 
-} 
-/* Texto */ 
-
-p { text-align: justify; 
-    margin-bottom: 1rem;
-     font-size: 1rem; 
+    /* Títulos */ 
+    h2 { 
+        font-size: 1.5rem; 
+        font-weight: bold; 
+        margin: 1.5rem 0 0.8rem; 
+        color: var(--azul-opcao); 
     } 
+    /* Texto */ 
     
-    /* Imagens grandes */ 
+    p { 
+        text-align: justify; 
+        margin-bottom: 1rem; 
+        font-size: 1rem; 
+    } 
+    /* Imagens grandes */
     
     .lado-esquerdo img, .lado-direito img, .parte-2 img { 
-        width: 100%; 
+        width: 40%; 
         border-radius: 0.8rem; 
-        margin: 1rem ; 
-        display: block; }
+        margin: 1rem 0; 
+        display: block; 
+    }
 
-/* Ajuste responsivo */
-@media (max-width: 900px) {
-.container {
-flex-direction: column;
-margin: 1rem;
+    .lado-esquerdo {
+        justify-content: left; /* cada coluna ocupa quase metade da tela */
+        display: flex;
+        
+    }
+
+    .lado-direito {
+        justify-content: right;
+        display: flex;
+    }
+
+
+.subir-topo {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+
+    a {
+        display: flex;
+        justify-content: flex-end;
+        background-color: var(--ciano-escuro);
+        margin: 1rem;
+        margin-right: 2rem;
+        padding: 0.8rem;
+        padding-inline: 1.3rem;
+        border-radius: 0.7rem;
+
+        margin-top: 7rem;
+
+        width: 7rem;
+        margin-left: auto;
+
+
+
+        text-align: center;
+        text-decoration: none;
+        color: var(--branco);
+        font-size: 1.2rem;
+        font-weight: 550;
+
+    }
 }
-
-.lado-esquerdo, .lado-direito {
-width: 100%;
-}
-}
-
-
 
 .menu-de-baixo {
     background-color: var(--azul-cinza);

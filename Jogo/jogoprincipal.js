@@ -95,14 +95,14 @@ function fecharPopup1() {
       niveis[0].children[0].innerHTML = 2
       niveis[0].children[0].setAttribute("href", "arrastaJogo.html"); 
 
-} else if (localStorage.getItem('Fase 2') === 'completa') {
+} if (localStorage.getItem('Fase 2') === 'completa') {
       const niveis = document.querySelectorAll(".nivel-3")
       niveis[0].classList.remove("bloqueado")
       niveis[0].classList.add("desbloqueado")
       niveis[0].children[0].innerHTML = 3
       niveis[0].children[0].setAttribute("href", "perguntas.html"); 
 
-} else if (localStorage.getItem('fase3') === 'completa') {
+} if (localStorage.getItem('fase3') === 'completa') {
       const niveis = document.querySelectorAll(".nivel-4")
       niveis[0].classList.remove("bloqueado")
       niveis[0].classList.add("desbloqueado")

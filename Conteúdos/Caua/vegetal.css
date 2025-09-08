@@ -27,11 +27,20 @@ img.Logo {
     width: 5.8rem;
 }
 
-header {
+.menu_de_navegacao {
+    background-color: var(--cor-fundo);
+    font-family: "Raleway", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: weight;
+    font-style: normal;
     display: flex;
     justify-content: space-between;
-    background-color: #FFF;
+    background-color: var(--branco);
     padding-block: 0.7rem;
+
+    img {
+        width: 5.8rem;
+    }
 
     a {
         text-decoration: none;
@@ -60,7 +69,6 @@ header {
 .pagina-aberta {
     color: var(--azul-opcao);
 }
-
 
 
 
