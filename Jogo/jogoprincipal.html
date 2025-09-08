@@ -13,49 +13,80 @@
 <body>
     <header>
         <div class="voltar-home">
-            <a href="../index.html"><img src="./Logo-PlantInsight.png" alt="Logo do PlantInsight"></a>
-            <a href="../index.html"><h2>PlantInsight</h2></a>
+            <a href="../index.html" class="sair limpar-local"><img src="../Jogo/assets.jogos/Logo-PlantInsight.png" alt="Logo do PlantInsight"></a>
+            <a href="../index.html" class="sair limpar-local"><h2>PlantInsight</h2></a>
         </div>
         <div class="opcoes-paginas">
-        <a href="../Carrossel/carrossel.html"><h2>Conteúdos</h2></a>
-        <a href="./jogojogar.html"><h2 class="pagina-aberta">Jogo</h2></a>
-        <a href="../Feedback/feedBack.html"><h2>Feedback</h2></a>
-        <a href="../Sobre Nós/sobrenos.html"><h2>Sobre nós</h2></a>
+        <a href="../Carrossel/carrossel.html" class="sair limpar-local"><h2>Conteúdos</h2></a>
+        <a href="./jogojogar.html"><h2 class="pagina-aberta sair limpar-local">Jogo</h2></a>
+        <a href="../Sobre Nós/sobrenos.html" class="sair limpar-local"><h2>Sobre nós</h2></a>
         </div>
     </header>
 
-    <div class="partido">
-        <img class="prantinha" src="./planta.png" alt="plantinha">
-    <div class="fases">
-        <div class="um-a-cinco">
-            <div class="desbloqueado"><h2>1</h2></div>
-            <div class="bloqueado"><img src="./cadeado.png" alt="imagem ilustrativa cadeado"></div>
-            <div class="bloqueado"><img src="./cadeado.png" alt="imagem ilustrativa cadeado"></div>
-            <div class="bloqueado"><img src="./cadeado.png" alt="imagem ilustrativa cadeado"></div>
-            <div class="bloqueado"><img src="./cadeado.png" alt="imagem ilustrativa cadeado"></div>
+    <div id="popup1">
+        <div class="popup-regras">
+          <span class="fechar" onclick="fecharPopup1()">X</span>
+          <p>Objetivo: Manter a planta <br>
+            viva durante as 20 fases.</p>
         </div>
-        <div class="seis-a-dez">
-            <div class="bloqueado"><img src="./cadeado.png" alt="imagem ilustrativa cadeado"></div>
-            <div class="bloqueado"><img src="./cadeado.png" alt="imagem ilustrativa cadeado"></div>
-            <div class="bloqueado"><img src="./cadeado.png" alt="imagem ilustrativa cadeado"></div>
-            <div class="bloqueado"><img src="./cadeado.png" alt="imagem ilustrativa cadeado"></div>
-            <div class="bloqueado"><img src="./cadeado.png" alt="imagem ilustrativa cadeado"></div>
+      </div>
+    
+      <div id="popup2">
+        <div class="popup-ctzsair">
+            <h3>Certeza que deseja sair?</h3>
+            <a href="./jogojogar.html"><button class="espaco">Sim</button></a>
+            <button onclick="fecharPopup2()" id="fechar">Não</button>
         </div>
-        <div class="onze-a-quinze">
-            <div class="bloqueado"><img src="./cadeado.png" alt="imagem ilustrativa cadeado"></div>
-            <div class="bloqueado"><img src="./cadeado.png" alt="imagem ilustrativa cadeado"></div>
-            <div class="bloqueado"><img src="./cadeado.png" alt="imagem ilustrativa cadeado"></div>
-            <div class="bloqueado"><img src="./cadeado.png" alt="imagem ilustrativa cadeado"></div>
-            <div class="bloqueado"><img src="./cadeado.png" alt="imagem ilustrativa cadeado"></div>
+      </div>
+    
+     
+      
+   
+ 
+        <div class="partido-em-dois">
+            <img class="planta" src="../Jogo/assets.jogos/Planta.png" alt="planta 3 vidas">
+            <div class="vinte-fases">
+                <div class="primeira">
+                    <div class="desbloqueado botao-fase nivel-1" data-fase="1"><a href="./perguntas.html">1</a></div>
+                    <div class="bloqueado botao-fase nivel-2" data-fase="2">
+                        <a href="">
+                            <img src="../Jogo/assets.jogos/cadeado.png" alt="cadeado">
+                        </a>
+                    </div>
+                    <div class="bloqueado botao-fase nivel-3" data-fase="3"><a href=""><img src="../Jogo/assets.jogos/cadeado.png" alt="cadeado"></div>
+                    <div class="bloqueado botao-fase nivel-4" data-fase="4"><a href=""><img src="../Jogo/assets.jogos/cadeado.png" alt="cadeado"></div>
+                    <div class="bloqueado botao-fase nivel-5" data-fase="5"><a href=""><img src="../Jogo/assets.jogos/cadeado.png" alt="cadeado"></div>
+                </div>
+                <div class="segunda">
+                    <div class="bloqueado botao-fase nivel-6" data-fase="6"><a href=""><img src="../Jogo/assets.jogos/cadeado.png" alt="cadeado"></a></div>
+                    <div class="bloqueado botao-fase nivel-7" data-fase="7"><a href=""><img src="../Jogo/assets.jogos/cadeado.png" alt="cadeado"></a></div>
+                    <div class="bloqueado botao-fase nivel-8" data-fase="8><a href=""><img src="../Jogo/assets.jogos/cadeado.png" alt="cadeado"></a></div>
+                    <div class="bloqueado botao-fase nivel-9" data-fase="9"><a href=""><img src="../Jogo/assets.jogos/cadeado.png" alt="cadeado"></a></div>
+                    <div class="bloqueado botao-fase nivel-10" data-fase="10"><a href=""><img src="../Jogo/assets.jogos/cadeado.png" alt="cadeado"></a></div>
+                </div>
+                <div class="terceira">
+                    <div class="bloqueado botao-fase nivel-11" data-fase="11"><a href=""><img src="../Jogo/assets.jogos/cadeado.png" alt="cadeado"></a></div>
+                    <div class="bloqueado botao-fase nivel-12" data-fase="12"><a href=""><img src="../Jogo/assets.jogos/cadeado.png" alt="cadeado"></a></div>
+                    <div class="bloqueado botao-fase nivel-13" data-fase="13"><a href=""><img src="../Jogo/assets.jogos/cadeado.png" alt="cadeado"></a></div>
+                    <div class="bloqueado botao-fase nivel-14" data-fase="14"><a href=""><img src="../Jogo/assets.jogos/cadeado.png" alt="cadeado"></a></div>
+                    <div class="bloqueado botao-fase nivel-15" data-fase="15"><a href=""><img src="../Jogo/assets.jogos/cadeado.png" alt="cadeado"></a></div>
+                </div>
+                <div class="quarta">
+                    <div class="bloqueado botao-fase nivel-16" data-fase="16"><a href=""><img src="../Jogo/assets.jogos/cadeado.png" alt="cadeado"></a></div>
+                    <div class="bloqueado botao-fase nivel-17" data-fase="17"><a href=""><img src="../Jogo/assets.jogos/cadeado.png" alt="cadeado"></a></div>
+                    <div class="bloqueado botao-fase nivel-18" data-fase="18"><a href=""><img src="../Jogo/assets.jogos/cadeado.png" alt="cadeado"></a></div>
+                    <div class="bloqueado botao-fase nivel-19" data-fase="19"><a href=""><img src="../Jogo/assets.jogos/cadeado.png" alt="cadeado"></a></div>
+                    <div class="bloqueado botao-fase nivel-20" data-fase="20"><a href=""><img src="../Jogo/assets.jogos/cadeado.png" alt="cadeado"></a></div>
+                </div>
+                <div class="vida">
+                    <h2>Vida: </h2>
+                    <img class="vida-0" src="../Jogo/assets.jogos/corcaovida.png" alt="coração de vida">
+                    <img class="vidas-1" src="../Jogo/assets.jogos/corcaovida.png" alt="coração de vida">
+                    <img class="vidas-2" src="../Jogo/assets.jogos/corcaovida.png" alt="coração de vida">
+                </div>
+            </div>
         </div>
-        <div class="dezesseis-a-vinte">
-            <div class="bloqueado"><img src="./cadeado.png" alt="imagem ilustrativa cadeado"></div>
-            <div class="bloqueado"><img src="./cadeado.png" alt="imagem ilustrativa cadeado"></div>
-            <div class="bloqueado"><img src="./cadeado.png" alt="imagem ilustrativa cadeado"></div>
-            <div class="bloqueado"><img src="./cadeado.png" alt="imagem ilustrativa cadeado"></div>
-            <div class="bloqueado"><img src="./cadeado.png" alt="imagem ilustrativa cadeado"></div>
-        </div>
-    </div>
-    </div>
+        
+        <script src="./jogoprincipal.js"></script>
 </body>
 </html>

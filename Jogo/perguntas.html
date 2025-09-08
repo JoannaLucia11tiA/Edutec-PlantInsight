@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlantInsight - Jogo</title>
+    <link rel="icon" href="../Logonavegador.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Konkhmer+Sleokchher&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="perguntas.css">
+    
+
+</head>
+<body>
+    <header>
+        <div class="voltar-home">
+            <a href="../index.html"><img src="../Jogo/assets.jogos/Logo-PlantInsight.png" alt="Logo do PlantInsight"></a>
+            <a href="../index.html"><h2>PlantInsight</h2></a>
+        </div>
+        <div class="opcoes-paginas">
+        <a href="../Carrossel/carrossel.html"><h2>Conteúdos</h2></a>
+        <a href="./jogojogar.html"><h2 class="pagina-aberta">Jogo</h2></a>
+        <a href="../Sobre Nós/sobrenos.html"><h2>Sobre nós</h2></a>
+        </div>
+    </header>
+
+    <main>
+        <div class="quadrinho-container">
+          <div class="quadrinho">
+              <div class="pergunta">
+                  <h1>1</h1>
+                  <h2 id="texto-pergunta">Qual a principal função das folhas?</h2>
+                  
+                  <a href="./jogoprincipal.html"><h3 class="sair-X">X</h3></a>
+              </div>
+              <div class="opcoes-respostas">
+                <div class="opcoes-2">
+                    <button class="opcao-texto" data-number="1">Absorver água do solo.</button>
+                    <button class="opcao-texto" data-number="2">Produzir frutos.</button>
+                </div>
+                  <div class="opcoes-2">
+                    <button class="opcao-texto" data-number="3">Realizar a fotossíntese.</button>
+                    <button class="opcao-texto" data-number="4">Transportar nutrientes.</button>
+                  </div>
+                  
+                  
+              </div>
+              <div id="button-continuar"></div>
+          </div>
+          
+        </div>
+      </main>
+
+<script src="./perguntas.js"></script>
+</body>
+</html>

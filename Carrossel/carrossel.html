@@ -1,69 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Konkhmer+Sleokchher&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="./carrossel.css">
     <script src="./js/siema.min.js" defer></script>
     <script src="./js/script.js" defer></script>
     <title>PlantInsight - Carrossel</title>
     <link rel="icon" href="../Logonavegador.png" type="image/png">
-    
 </head>
+
 <body>
-    <header>
+
+    <header class="menu_de_navegacao">
         <div class="voltar-home">
-            <a href="../index.html"><img src="./imagens-carrossel/Logo-PlantInsight.png" alt="Logo do PlantInsight"></a>
-            <a href="../index.html"><h2>PlantInsight</h2></a>
+            <a href="../index.html"><img src="../Jogo/assets.jogos/Logo-PlantInsight.png"
+                    alt="Logo do PlantInsight"></a>
+            <a href="../index.html">
+                <h2>PlantInsight</h2>
+            </a>
         </div>
         <div class="opcoes-paginas">
-        <a href="./carrossel.html"><h2  class="pagina-aberta">Conteúdos</h2></a>
-        <a href="../Jogo/jogojogar.html"><h2>Jogo</h2></a>
-        <a href="../Feedback/feedBack.html"><h2>Feedback</h2></a>
-        <a href="../Sobre Nós/sobrenos.html"><h2>Sobre nós</h2></a>
+            <a href="../Carrossel/carrossel.html">
+                <h2 class="pagina-aberta">Conteúdos</h2>
+            </a>
+            <a href="../Jogo/jogojogar.html">
+                <h2>Jogo</h2>
+            </a>
+            <a href="../Sobre Nós/sobrenos.html">
+                <h2>Sobre nós</h2>
+            </a>
         </div>
     </header>
 
-    <main>
-        <section>
+    <section class="inicio">
+        <div class="texto">
             <h1>Plantar saber é florescer.</h1>
-            <p>Ao estudar botânica, você não está apenas aprendendo sobre plantas,  está cultivando um olhar mais atento e sensível para a vida ao seu redor.</p>
-        </section> 
-    </main>
+            <p>Ao estudar botânica, você não está apenas aprendendo sobre plantas, está cultivando um olhar mais atento
+            e sensível para a vida ao seu redor.</p>
+        </div>
+        <img src="./imagens-carrossel/flor.png" alt="Flor">
+    </section>
 
-    <div class="siema">
-                    <div>
-                        <img src="./imagens-carrossel/introducao ao estudo das plantas .png" alt="Folha no sol">
-                        <p>Introdução ao Estudo das Plantas</p>
-                    </div>
-                    <div>
-                        <img src="./imagens-carrossel/a quimica das plantas.png" alt="Costela-de-Adão">
-                        <p>A Química das Plantas</p>
-                    </div>
-                    <div>
-                        <img src="./imagens-carrossel/neurociencia vegetal.png" alt="Mimosa pudica">
-                        <p>Neurociência Vegetal</p>
-                    </div>
-                    <div>
-                        <img src="./imagens-carrossel/fisiologia e ecologia vegetal.png" alt="Samambaia">
-                        <p>Fisiologia e Ecologia Vegetal</p>
-                    </div>
-                    <div>
-                        <img src="./imagens-carrossel/reproducao das plantas.png" alt="Musgo-do-fogo">
-                        <p>Reprodução das Plantas</p>
-                    </div>
-                    <div>
-                        <img src="./imagens-carrossel/evolucao e classificacao das plantas.png" alt="Folha molhada na terra">
-                        <p>Evolução e Classificação das Plantas</p>
-                    </div>
-                </a>
-            </li>
-        </ul>
+    <div class="onda-container">
+        <img class="onda" src="./imagens-carrossel/OndaMell.png" alt="Onda verde">
     </div>
 
-    
+    <div class="carrossel">
+        <button class="prev">&#10094;</button>
+        <div class="siema">
+            <div class="card">
+                <a href="../Conteúdos/Cezar/classificacaoDasPlantas.html">
+                <img src="./imagens-carrossel/evolucao e classificacao das plantas.png" alt="Folha molhada na terra">
+                <p>Evolução e Classificação das Plantas</p>
+                </a>
+            </div>
+            <div class="card">
+                <a href="../Conteúdos/Caua/estudosDasPlantas.html">
+                <img src="./imagens-carrossel/introducao ao estudo das plantas .png" alt="Folha no sol">
+                <p>Introdução ao Estudo das Plantas</p>
+                </a>
+            </div>
+            <div class="card">
+                <a href="../Conteúdos/Mellonny/quimicadasPlantas.HTML">
+                <img src="./imagens-carrossel/a quimica das plantas (1).png" alt="Costela-de-Adão">
+                <p>A Química das Plantas</p>
+                
+            </div>
+            <div class="card">
+                <a href="../Conteúdos/Caua/vegeal.html">
+                <img src="./imagens-carrossel/neurociencia vegetal.png" alt="Mimosa pudica">
+                <p>Neurociência Vegetal</p>
+                </a>
+            </div>
+            <div class="card">
+                <a href="../Conteúdos/Luiza/ Fisiologiavegeta.html">
+                <img src="./imagens-carrossel/fisiologia e ecologia vegetal.png" alt="Samambaia">
+                <p>Fisiologia e Ecologia Vegetal</p>
+                </a>
+            </div>
+
+            <div class="card">
+                <a href="../Conteúdos/Joanna/reproducaoPlantas.html">
+                <img src="./imagens-carrossel/reproducao das plantas.png" alt="Musgo-do-fogo">
+                <p>Reprodução das Plantas</p>
+                </a>
+            </div>
+        </div>
+        <button class="next">&#10095;</button>
+    </div>
 </body>
+
 </html>

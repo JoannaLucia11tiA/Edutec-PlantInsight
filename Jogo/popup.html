@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlantInsight - Jogo</title>
+    <link rel="icon" href="../Logonavegador.png" type="image/png">
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <header>
+        <div class="voltar-home">
+            <a href="../index.html"><img src="../Jogo/assets.jogos/Logo-PlantInsight.png" alt="Logo do PlantInsight"></a>
+            <a href="../index.html"><h2>PlantInsight</h2></a>
+        </div>
+        <div class="opcoes-paginas">
+        <a href="../Carrossel/carrossel.html"><h2>Conteúdos</h2></a>
+        <a href="./jogojogar.html"><h2 class="pagina-aberta">Jogo</h2></a>
+        <a href="../Sobre Nós/sobrenos.html"><h2>Sobre nós</h2></a>
+        </div>
+    </header>
+
+    <div id="popup-certo" style="display:none;" class="acertoResposta">
+        <a href="./jogoprincipal.html"><h1>X</h1></a>
+        <div class="mensagem-certo">
+            <img src="./assets.jogos/plantaFeliz.png" alt="Plantinha feliz">
+            <p>Resposta <br> correta!</p>
+        </div>
+        <div class="botoes">
+            <a href="./perguntas.html"><button><img src="./assets.jogos/deNovo.png"  alt="jogar fase novamente"></button></a>
+            <button  id="play-fase" onclick="" ><img src="./assets.jogos/playProximo.png" class="play" alt="proxima fase"></button>
+        </div>
+      </div>
+       
+      <div id="popup-errado" style="display:none;" class="erradoResposta">
+        <a href="./jogoprincipal.html"><h1>X</h1></a>
+        <div class="mensagem-errado">
+            <img src="./assets.jogos/errouPlanta.png" alt="Plantinha triste">
+            <p>Resposta <br> incorreta!</p>
+        </div>
+        <div class="botoes">
+            <a href="./perguntas.html"><button><img src="./assets.jogos/deNovo.png"  alt="jogar fase novamente"></button></a>
+        </div>
+      </div>
+      <script src="popup.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlantInsight - Jogo</title>
+    <link rel="stylesheet" href="arrastaJogo.css">
+    <link rel="icon" href="../Logonavegador.png" type="image/png">
+</head>
+<body>
+    <header>
+        <div class="voltar-home">
+            <a href="../index.html"><img src="/Carrossel/imagens-carrossel/Logo-PlantInsight.png" alt="Logo do PlantInsight"></a>
+            <a href="../index.html"><h2>PlantInsight</h2></a>
+        </div>
+        <div class="opcoes-paginas">
+        <a href="../Carrossel/carrossel.html"><h2>Conteúdos</h2></a>
+        <a href="./jogojogar.html"><h2 class="pagina-aberta">Jogo</h2></a>
+        <a href="../Sobre Nós/sobrenos.html"><h2>Sobre nós</h2></a>
+        </div>
+    </header>
+    
+
+<div class="enquadrar">
+    <a href="./jogoprincipal.html" class="sair">X</a>
+    <div class="soltarOpcoes">
+    <div class="balao">
+        <img id="balao-1" alt="">
+        <h2>+</h2>
+        <div id="dropzone1" class="areasoltar interativo"> <h2>?</h2></div>
+        <h2>=</h2>
+        <h3>Resposta</h3>
+    </div>
+    <div class="balao">
+        <img id="balao-2" src="" alt="">
+        <h2>+</h2>
+        <div id="dropzone2" class="areasoltar interativo"> <h2>?</h2></div>
+        <h2>=</h2>
+        <h3>Resposta</h3>
+    </div>
+        <div class="balao">
+            <img id="balao-3" src="" alt="">
+            <h2>+</h2>
+            <div id="dropzone3" class="areasoltar interativo"> <h2>?</h2></div>
+            <h2>=</h2>
+            <h3>Resposta</h3>
+        </div>
+    </div>
+
+
+    <section class="container">
+        <div class="box" data-item="1">
+          <img class="desafio" src="" alt="Desafio">  
+        </div>
+      
+        <div class="box" data-item="2">
+          <img class="desafio" src="" alt="Desafio">
+          
+          <div class="dropzone" data-pos="vazia"></div>
+          
+          <div class="resultado"></div>
+        </div>
+      
+        <div class="box" data-item="3">
+          <img class="desafio" src="" alt="Desafio">
+          
+          <div class="dropzone" data-pos="vazia"></div>
+          
+          <div class="resultado"></div>
+        </div>
+      </section>
+      <div id="button-continuar"></div>
+    </div>
+      
+    
+    
+
+
+
+
+    <script src="./arrastaJogo.js"></script>
+</body>
+</html>

@@ -6,15 +6,31 @@
 :root{
     --branco: #FFF;
     --azul-cadete:#4FADAF;
+    --azul-mais-escuro: #448A8B;
     --azul-opcao: #37598A;
+    --azul-piscina: #78F3F1;
+    --azul-verde: #408283;
+    --azul-bebe: #B0E4DD;
+    --cor-fundo: #F7F8F8;
+    --verdin: #008774;
+    --verde-dark: #336868;
+    --azul-marinho: #2A4A7E;
+    --azul-darkeeeer: #1E3D3D;
+     --green-nromal: #00A991;
+    --green-darkeeeeer: #003B33;
+    --green-light: #E6F6F4;
+    --azul-cinza: #486794;
 }
+ 
+ 
 body{
-    background-color: var(--azul-cadete);
+    background-color: var(--cor-fundo);
     font-family: "Raleway", sans-serif;
     font-optical-sizing: auto;
     font-weight:weight;
     font-style: normal;
 }
+
 img{
     width: 5.8rem;
 }
@@ -47,4 +63,87 @@ header{
 }
 .pagina-aberta{
     color: var(--azul-opcao);
+}
+
+.menu-de-baixo {
+    background-color: var(--azul-cinza);
+    color: var(--branco);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4rem 6rem;
+    gap: 10rem;
+    font-family: 'Raleway', sans-serif;
+
+    .logo-ancora {
+        display: flex;
+        align-items: center;
+        gap: 0.3rem;
+
+        img {
+            width: 6rem;
+            height: auto;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--branco);
+        }
+    }
+
+    .logo-texto {
+        font-size: 2rem;
+        font-weight: bold;
+        line-height: 1.2;
+
+        a {
+            text-decoration: none;
+            color: var(--branco);
+        }
+    }
+
+    .paginas-site {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: left;
+
+        a {
+            text-decoration: none;
+            color: var(--branco);
+        }
+
+        p {
+            margin: 0;
+            font-size: 1rem;
+            font-weight: 400;
+        }
+    }
+
+    .redes-sociais {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+
+        div {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        img {
+            width: 1.8rem;
+            height: 1.8rem;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 400;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--branco);
+        }
+    }
 }

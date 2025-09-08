@@ -17,6 +17,7 @@ body{
     font-optical-sizing: auto;
     font-weight:weight;
     font-style: normal;
+    overflow: hidden;
 }
 
 img{

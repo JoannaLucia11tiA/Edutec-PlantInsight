@@ -1,42 +1,41 @@
-*{
-    padding: 0;
+* {
     margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
-:root{
+
+:root {
     --branco: #FFF;
-    --azul-cadete:#4FADAF;
+    --preto: #000000;
+    --cinza-escuro: #1b1b1b;
+    --azul-cadete: #4FADAF;
     --azul-opcao: #37598A;
+    --ciano-claro: #85D4CA;
+    --azul-cinza: #486794;
+    --azul-titulo: #408283;
 }
-body{
-    background-color: var(--azul-cadete);
-    font-family: "Raleway", sans-serif;
-    font-optical-sizing: auto;
-    font-weight:weight;
-    font-style: normal;
-}
-img{
-    width: 5.8rem;
-}
-header{
+
+.menu_de_navegacao {
     display: flex;
-    justify-content: space-between; 
-    background-color: #FFF;
+    justify-content: space-between;
+    background-color: var(--branco);
     padding-block: 0.7rem;
 
-    a{
+    a {
         text-decoration: none;
         color: var(--azul-cadete);
     }
-    .voltar-home{
+
+    .voltar-home {
         display: flex;
         align-items: center;
         margin-left: 1.6rem;
         gap: 0.6rem;
         color: var(--azul-cadete);
-        font-family:"Raleway", sans-serif;
+        font-family: "Raleway", sans-serif;
     }
-    .opcoes-paginas{
+
+    .opcoes-paginas {
         display: flex;
         align-items: center;
         margin-right: 4.6rem;
@@ -44,7 +43,147 @@ header{
         font-size: 12px;
         color: var(--azul-cadete);
     }
+
+    img {
+        width: 5.8rem;
+    }
 }
-.pagina-aberta{
+
+body {
+    background-color: var(--branco);
+    font-family: "Raleway", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: weight;
+    font-style: normal;
+}
+
+.pagina-aberta {
     color: var(--azul-opcao);
+}
+
+.inicio {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3rem 15rem;
+
+    h1 {
+        font-family: "Raleway", sans-serif;
+        color: var(--azul-titulo);
+        letter-spacing: 0.2rem;
+        font-size: 3.7rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        margin-left: 3rem;
+    }
+
+    p {
+        color: var(--preto);
+        font-size: 1.8rem;
+        line-height: 1.7;
+        width: 45rem;
+        margin-left: 3rem;
+    }
+
+    img {
+        width: 45rem;
+        margin-right: -2rem;
+        margin-top: -4.8rem;
+    }
+}
+
+.onda-container {
+    width: 100%;
+    overflow: hidden;
+    margin-top: -11rem;
+}
+
+.onda {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+
+.carrossel {
+    margin-top: -9rem;/* move o carrossel para cima na página */
+    display: flex;/* organiza os elementos em linha */
+    align-items: center;/* centraliza verticalmente */
+    justify-content: center;/* centraliza horizontalmente */
+    background-color: var(--azul-cadete);/* cor de fundo */
+    padding: 2.6rem 0;/* aumentei o espaço em cima e embaixo */
+    position: relative;
+    z-index: 5; /* sobe o carrossel acima da onda */
+    width: 100%;/* ocupa toda a largura */
+    overflow-x: hidden; /* mantém o carrossel sem barra de rolagem horizontal */
+    overflow-y: visible; /* permite que os cards cresçam para cima */
+
+    .siema {
+        display: block;/* impede o flex de amassar */
+        transition: transform 2s ease;/* animação suave */
+    }
+
+    .card {
+        background: var(--branco);/* fundo branco */
+        border-radius: 1rem;/* cantos arredondados */
+        padding: 1rem;/* espaço interno */
+        width: 16rem;/* largura fixa */
+        display: inline-block;/* mantém em linha */
+
+        transition: transform 0.4s ease, box-shadow 0.3s ease;
+
+        img {
+            width: 100%;/* ocupa toda a largura do card */
+            height: 10rem;/* altura fixa para todas ficarem iguais */
+            object-fit: cover;/* corta sem distorcer */
+            border-radius: 0.6rem;/* arredonda igual ao card */
+            margin-bottom: 0.5rem;/* espaço antes do texto */
+        }
+
+        &:hover {          
+            transform: translateY(-0.5rem) scale(1.05);
+
+        }
+
+        a {
+            p {
+                text-align: center;
+                color: var(--cinza-escuro);
+                font-family: "Merriweather", sans-serif;
+                font-weight: normal;
+                font-size: 1rem;
+                min-height: 2.5rem;/* altura mínima */
+            }
+
+            text-decoration: none; /* remove o sublinhado */
+        }
+    }
+
+    /* Botões de navegação (setas esquerda/direita) */
+    button {
+        position: absolute;/* posiciona em relação ao carrossel */
+        top: 50%;/* coloca o botão no meio vertical */
+        transform: translateY(-50%);/* ajusta o alinhamento vertical */
+        background: var(--branco);/* fundo branco */
+        border: none;/* remove a borda padrão */
+        font-size: 1.8rem;/* tamanho do ícone da seta */
+        border-radius: 50%;/* deixa o botão redondo */
+        width: 2.5rem;/* largura do botão (40px) */
+        height: 2.5rem;/* altura do botão (40px) */
+        cursor: pointer;/* cursor de mãozinha */
+        transition: background 0.3s;/* animação ao passar o mouse */
+        z-index: 10;/* garante que fique acima dos cards */
+    }
+
+    button:hover {
+        background: var(--branco);/* mantém o fundo branco no hover */
+    }
+
+    .prev {
+        left: 0.625rem;/* posiciona o botão da esquerda (10px da borda) */
+    }
+
+    .next {
+        right: 0.625rem;/* posiciona o botão da direita (10px da borda) */
+    }
 }
