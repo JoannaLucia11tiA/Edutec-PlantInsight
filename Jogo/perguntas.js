@@ -272,6 +272,21 @@ let questoesQuiz = [
   }
 ]
 
+
+ // 1. Ouve os cliques nos links de SAÍDA
+  document.querySelectorAll(".sair").forEach(link => {
+    link.addEventListener("click", e => {
+      e.preventDefault(); // Impede o link de funcionar imediatamente
+      destinoSaida = link.href; // Guarda o endereço do link (ex: index.html)
+      
+      // Verifica se o link também tem a classe para limpar o progresso
+      limparProgresso = link.classList.contains('limpar-local');
+      
+      mostrarPopup2(); // Mostra o pop-up de confirmação
+    });
+  });
+
+
 //Constantes
 const maximoQuestoes = 1
 

@@ -1,97 +1,164 @@
-// --- LÓGICA DE EXIBIÇÃO DOS POP-UPS ---
+// =========================================================================
+// FUNÇÕES DE CONTROLE DO JOGO
+// =========================================================================
+
+/**
+ * Limpa todo o progresso de fases do jogo salvo no navegador.
+ * Isso é usado ao perder ou ao vencer, para preparar um novo jogo.
+ */
+function limparProgressoFases() {
+  console.log("Limpando progresso de fases...");
+  localStorage.removeItem('faseAtual');
+  for (let i = 1; i <= 20; i++) {
+      localStorage.removeItem(`Fase ${i}`);
+  }
+  localStorage.removeItem('resultadoPergunta');
+  localStorage.removeItem('acertosFase');
+  localStorage.removeItem('popup1Mostrado');
+}
+
+/**
+* Reinicia completamente o estado do jogo.
+* Reseta as vidas para 3 e limpa todo o progresso.
+*/
+function reiniciarJogoCompleto() {
+  console.log("Reiniciando o jogo completamente...");
+  localStorage.setItem('vidas', '3');
+  limparProgressoFases();
+}
+
+
+// =========================================================================
+// LÓGICA PRINCIPAL DE EXIBIÇÃO DOS POP-UPS
+// =========================================================================
+
+// Este evento espera todo o HTML da página ser carregado antes de rodar o código.
 window.addEventListener('DOMContentLoaded', () => {
-  // 1. PRIMEIRO, verifica se as vidas acabaram.
-  // Usamos localStorage.getItem('vidas') porque a função getVidas() do vidas.js pode não estar carregada ainda.
+  console.log("DOM carregado. Verificando estado do jogo...");
+
+  // --- 1. VERIFICAÇÃO DE VITÓRIA (Prioridade Máxima) ---
+  if (localStorage.getItem('Fase 20') === 'completa') {
+      console.log("Condição de vitória atendida: Fase 20 está completa.");
+      const popupVitoria = document.getElementById('vitoriaJogo');
+      if (popupVitoria) {
+          console.log("Popup de vitória encontrado. Exibindo...");
+          popupVitoria.style.display = 'block';
+          
+          // Limpa o progresso para que o botão \"Jogar Novamente\" funcione
+          limparProgressoFases(); 
+
+          const btnJogarNovamenteVitoria = document.getElementById('jogar-novamente-vitoria');
+          if (btnJogarNovamenteVitoria) {
+              btnJogarNovamenteVitoria.addEventListener('click', (e) => {
+                  e.preventDefault();
+                  reiniciarJogoCompleto(); // Reseta vidas e limpa tudo de novo (garantia)
+                  window.location.href = './jogojogar.html';
+              });
+          }
+      } else {
+          console.error("ERRO: Fase 20 completa, mas o pop-up com id 'vitoria-final' não foi encontrado no HTML.");
+      }
+      return; // Para a execução para não mostrar outros pop-ups
+  }
+
+  // --- 2. VERIFICAÇÃO DE DERROTA (Se não houve vitória) ---
   if (localStorage.getItem('vidas') === '0') {
-    // Mostra o pop-up de Fim de Jogo
-    document.getElementById('vidasFim').style.display = 'block';
+      console.log("Condição de derrota: 0 vidas.");
+      const popupFim = document.getElementById('vidasFim');
+      if (popupFim) {
+          popupFim.style.display = 'block';
+          limparProgressoFases(); // Limpa o tabuleiro para o próximo jogo
 
-    // Garante que nenhum outro pop-up de resultado apareça junto
-    document.getElementById('popup-certo').style.display = 'none';
-    document.getElementById('popup-errado').style.display = 'none';
-    document.getElementById('acertos-maximo').style.display = 'none';
-    document.getElementById('acertos-baixo').style.display = 'none';
-    
-    // Limpa os resultados de fase para não interferir num próximo jogo
-    localStorage.removeItem('resultadoPergunta');
-    localStorage.removeItem('acertosFase');
-
-    // Para a execução aqui para não mostrar os outros pop-ups por engano
-    return;
+          const btnJogarNovamenteDerrota = popupFim.querySelector('a');
+          if(btnJogarNovamenteDerrota) {
+              btnJogarNovamenteDerrota.addEventListener('click', (e) => {
+                  e.preventDefault();
+                  reiniciarJogoCompleto(); // Reseta as vidas e o progresso
+                  window.location.href = e.target.closest('a').href;
+              });
+          }
+      }
+      return;
   }
 
-  // 2. SE HOUVER VIDAS, mostra o resultado da fase
-
-  // Lógica para o pop-up da fase de PERGUNTAS
+  // --- 3. EXIBIÇÃO NORMAL (Se não houve vitória nem derrota) ---
   const resultadoPergunta = localStorage.getItem('resultadoPergunta');
-  if (resultadoPergunta === 'certo') {
-    document.getElementById('popup-certo').style.display = 'block';
-  } else if (resultadoPergunta === 'errado') {
-    document.getElementById('popup-errado').style.display = 'block';
+  if (resultadoPergunta) {
+      document.getElementById(resultadoPergunta === 'certo' ? 'popup-certo' : 'popup-errado').style.display = 'block';
+      localStorage.removeItem('resultadoPergunta');
   }
-  localStorage.removeItem('resultadoPergunta'); // Limpa depois de usar
 
-  // Lógica para o pop-up da fase de ARRASTAR
   const acertosFase = localStorage.getItem('acertosFase');
-  if (acertosFase === '3') {
-    document.getElementById('acertos-maximo').style.display = 'block';
-  } else if (acertosFase !== null && acertosFase < 3) { // Se for 0, 1 ou 2
-    const popupBaixo = document.getElementById('acertos-baixo');
-    popupBaixo.style.display = 'block';
-    const h3Popup = popupBaixo.querySelector('h3');
-    if (h3Popup) {
-        h3Popup.textContent = `${acertosFase}/3`;
-    }
+  if (acertosFase !== null) {
+      if (acertosFase === '3') {
+          document.getElementById('acertos-maximo').style.display = 'block';
+      } else {
+          const popupBaixo = document.getElementById('acertos-baixo');
+          if (popupBaixo) {
+              popupBaixo.style.display = 'block';
+              const acertosValor = document.getElementById('acertos-valor');
+              if (acertosValor) {
+                  acertosValor.textContent = `${acertosFase}/3`;
+              }
+          }
+      }
+      localStorage.removeItem('acertosFase');
   }
-  localStorage.removeItem('acertosFase'); // Limpa depois de usar
 });
 
 
-// --- LÓGICA DOS BOTÕES ---
+// =========================================================================
+// LÓGICA DOS BOTÕES DE NAVEGAÇÃO
+// =========================================================================
 
-// Função que avança o número da fase no localStorage e redireciona
 const avancarFase = () => {
-    let faseAtual = parseInt(localStorage.getItem("faseAtual")) || 1;
-    localStorage.setItem(`Fase ${faseAtual}`, 'completa');
-    faseAtual++;
-    localStorage.setItem("faseAtual", faseAtual);
-    console.log("Próxima fase será a:", faseAtual);
+  let faseAtual = parseInt(localStorage.getItem("faseAtual")) || 1;
+  localStorage.setItem(`Fase ${faseAtual}`, 'completa');
 
-    // Decide para qual página ir
-    const faseAnterior = localStorage.getItem("faseAnterior");
-    if (faseAnterior === "1") {
-        window.location.href = "arrastaJogo.html";
-    } else if (faseAnterior === "2") {
-        window.location.href = "perguntas.html";
-    } else {
-        window.location.href = "jogoprincipal.html"; // Caso seguro
-    }
+  if (faseAtual === 20) {
+      // Vitória! Redireciona para o popup para a verificação de vitória acontecer.
+      window.location.href = "popup.html";
+      return;
+  }
+  
+  faseAtual++;
+  localStorage.setItem("faseAtual", faseAtual);
+
+  const faseAnterior = localStorage.getItem("faseAnterior");
+  // Alterna entre os jogos
+  window.location.href = faseAnterior === "1" ? "arrastaJogo.html" : "perguntas.html";
 };
 
-// Pega os botões "Próxima Fase" dos popups de acerto
-const btnProximaFaseCerto = document.getElementById("play-fase");
-const btnProximaFaseMaximo = document.getElementById("play-fase2");
+// Adiciona o evento aos botões de "próxima fase" de forma segura
+document.getElementById("play-fase")?.addEventListener("click", avancarFase);
+document.getElementById("play-fase2")?.addEventListener("click", avancarFase);
 
-if (btnProximaFaseCerto) {
-    btnProximaFaseCerto.addEventListener("click", avancarFase);
-}
-if (btnProximaFaseMaximo) {
-    btnProximaFaseMaximo.addEventListener("click", avancarFase);
-}
 
-// Lógica para o botão de "jogar novamente" no popup de fim de jogo
-const btnJogarNovamente = document.querySelector("#vidasFim .botoes a");
+// =========================================================================
+// LÓGICA DO POP-UP DE "SAIR"
+// =========================================================================
 
-if(btnJogarNovamente) {
-    btnJogarNovamente.addEventListener('click', (e) => {
-        e.preventDefault(); 
-        // Reseta as vidas para 3 para começar um novo jogo
-        localStorage.setItem('vidas', '3');
-        // Limpa o progresso de fases
-        localStorage.removeItem('faseAtual');
-        localStorage.removeItem('Fase 1');
-        localStorage.removeItem('Fase 2');
-        // Redireciona para a página principal
-        window.location.href = e.target.closest('a').href;
-    });
-}
+let destinoSaida = '';
+let limparProgresso = false;
+
+document.querySelectorAll(".sair").forEach(link => {
+  link.addEventListener("click", e => {
+      e.preventDefault();
+      destinoSaida = link.href;
+      limparProgresso = link.classList.contains('limpar-local');
+      const popupSair = document.getElementById("popup2");
+      if(popupSair) popupSair.style.display = "block";
+  });
+});
+
+document.getElementById('popup-sim')?.addEventListener('click', () => {
+  if (limparProgresso) {
+      reiniciarJogoCompleto();
+  }
+  window.location.href = destinoSaida;
+});
+
+document.getElementById('fechar')?.addEventListener('click', () => {
+  const popupSair = document.getElementById("popup2");
+  if(popupSair) popupSair.style.display = "none";
+});

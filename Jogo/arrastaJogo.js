@@ -1,9 +1,6 @@
-localStorage.setItem("faseAnterior", 2);
-
 let draggedElement = null;
 let acertosFase = 0;
 
-// Desafios disponíveis no jogo
 const desafios = [
     { id: 1, imagem: "sol.png", respostaImg: "plantadrop.png", resultado: "Fotossíntese" },
     { id: 2, imagem: "agua.png", respostaImg: "raizdrop.png", resultado: "Absorção de nutrientes" },
@@ -22,68 +19,80 @@ const desafios = [
     { id: 29, imagem: "raizdrop.png", resultado: "Geotropismo", respostaImg: "gravidade.png" },
 ];
 
-// --- Funções de Drag and Drop ---
+ // 1. Ouve os cliques nos links de SAÍDA
+ document.querySelectorAll(".sair").forEach(link => {
+    link.addEventListener("click", e => {
+      e.preventDefault(); // Impede o link de funcionar imediatamente
+      destinoSaida = link.href; // Guarda o endereço do link (ex: index.html)
+      
+      // Verifica se o link também tem a classe para limpar o progresso
+      limparProgresso = link.classList.contains('limpar-local');
+      
+      mostrarPopup2(); // Mostra o pop-up de confirmação
+    });
+  });
 
+
+
+// --- Funções de Drag and Drop (sem alterações) ---
 function handleDragStart(e) {
     this.style.opacity = "0.4";
-    draggedElement = this; // O elemento arrastado é a própria imagem
+    draggedElement = this; 
     e.dataTransfer.effectAllowed = "move";
     e.dataTransfer.setData("text/plain", this.src);
 }
-
-function handleDragOver(e) {
-    e.preventDefault();
-    e.dataTransfer.dropEffect = "move";
-}
-
-function handleDragEnter(e) {
-    this.classList.add("dragover");
-}
-
-function handleDragLeave(e) {
-    this.classList.remove("dragover");
+function handleDragOver(e) { e.preventDefault(); e.dataTransfer.dropEffect = "move"; }
+function handleDragEnter(e) { this.classList.add("dragover"); }
+function handleDragLeave(e) { this.classList.remove("dragover"); }
+function handleDragEnd(e) {
+    if (draggedElement) draggedElement.style.opacity = "1";
+    document.querySelectorAll(".areasoltar").forEach(area => area.classList.remove("dragover"));
 }
 
 function handleDrop(e) {
     e.preventDefault();
     this.classList.remove("dragover");
-
     if (draggedElement) {
-        // Pega o nome do arquivo da imagem arrastada
         const respostaJogador = draggedElement.src.split("/").pop();
-        // Pega a resposta correta armazenada no dropzone
-        const respostaCorreta = this.dataset.respostaCorreta;
-
-        // Limpa a área de soltar e adiciona a imagem arrastada
         this.innerHTML = "";
         this.appendChild(draggedElement);
-        draggedElement.style.opacity = "1"; // Garante que a opacidade volte ao normal
-
-        // Verifica se a resposta está correta
-        if (respostaJogador === respostaCorreta) {
-            this.dataset.acertou = "true";
-        } else {
-            this.dataset.acertou = "false";
-        }
-        
-        draggedElement = null; // Limpa o elemento arrastado
-        verificarDropzones(); // Verifica se todos os dropzones foram preenchidos
-    }
-}
-
-function handleDragEnd(e) {
-    // Se o elemento não foi solto em um alvo válido, ele retorna à opacidade normal
-    if (draggedElement) {
         draggedElement.style.opacity = "1";
+        this.dataset.acertou = (respostaJogador === this.dataset.respostaCorreta) ? "true" : "false";
+        draggedElement = null; 
+        verificarSeTodasPreenchidas(); // Apenas mostra o botão
     }
-    // Remove a classe de highlight de todos os dropzones
-    document.querySelectorAll(".areasoltar").forEach(area => area.classList.remove("dragover"));
 }
 
+// --- Lógica do Jogo (CORRIGIDA E SIMPLIFICADA) ---
 
-// --- Lógica do Jogo ---
+// Função chamada quando o botão "Verificar" é clicado
+function checarRespostas() {
+    const dropzones = document.querySelectorAll(".areasoltar");
+    document.querySelectorAll(".desafio-opcao").forEach(opcao => { opcao.draggable = false; });
 
-// Função para embaralhar um array (algoritmo de Fisher-Yates)
+    acertosFase = [...dropzones].filter(dz => dz.dataset.acertou === "true").length;
+    localStorage.setItem("acertosFase", acertosFase);
+    
+    if (acertosFase < 3) {
+        removeVida();
+    }
+
+    window.location.href = "./popup.html";
+}
+
+// Mostra o botão que já existe no HTML
+function verificarSeTodasPreenchidas() {
+    const dropzones = document.querySelectorAll(".areasoltar");
+    const todasPreenchidas = [...dropzones].every(dz => dz.querySelector("img"));
+
+    if (todasPreenchidas) {
+        const button = document.getElementById('verificar-btn');
+        if (button) {
+            button.style.display = 'block'; // Mostra o botão
+        }
+    }
+}
+
 function shuffle(array) {
     for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -93,90 +102,59 @@ function shuffle(array) {
 }
 
 const comecarJogo = () => {
-    acertosFase = 0; // Reseta os acertos da fase
-    const desafiosDisponiveis = [...desafios];
+    localStorage.setItem("faseAnterior", 2);
+    acertosFase = 0;
     
-    // Escolhe 3 desafios aleatórios sem repetição
-    const questoesEscolhidas = shuffle(desafiosDisponiveis).slice(0, 3);
-    
-    // Pega as 3 respostas corretas e embaralha para as opções
+    const button = document.getElementById('verificar-btn');
+    if (button) {
+        button.style.display = 'none'; // Esconde o botão no início
+    }
+
+    const questoesEscolhidas = shuffle([...desafios]).slice(0, 3);
     const opcoesRespostas = shuffle(questoesEscolhidas.map(q => q.respostaImg));
 
-    const desafiosImagens = document.querySelectorAll(".soltarOpcoes .balao > img");
-    const respostasTexto = document.querySelectorAll(".soltarOpcoes .balao > h3");
-    const dropzones = document.querySelectorAll(".areasoltar");
+    const balaoImgs = [document.getElementById('balao-1'), document.getElementById('balao-2'), document.getElementById('balao-3')];
+    const dropzones = [document.getElementById('dropzone1'), document.getElementById('dropzone2'), document.getElementById('dropzone3')];
+    const respostasTexto = document.querySelectorAll('.balao h3');
     const opcoesImagens = document.querySelectorAll(".desafio-opcao");
 
-    // Preenche os desafios e as áreas de soltar
     questoesEscolhidas.forEach((questao, index) => {
-        // Define a imagem do desafio (ex: sol.png)
-        desafiosImagens[index].src = `assets.jogos/${questao.imagem}`;
-        desafiosImagens[index].alt = questao.resultado;
-
-        // Define o texto do resultado (ex: Fotossíntese)
+        balaoImgs[index].src = `assets.jogos/${questao.imagem}`;
+        balaoImgs[index].alt = questao.resultado;
         respostasTexto[index].textContent = questao.resultado;
-
-        // Armazena a resposta correta no dataset do dropzone correspondente
-        dropzones[index].dataset.respostaCorreta = questao.respostaImg;
-        dropzones[index].dataset.acertou = "false"; // Inicializa como falso
-        dropzones[index].innerHTML = '<h2>?</h2>'; // Reseta o conteúdo
+        const dropzone = dropzones[index];
+        dropzone.dataset.respostaCorreta = questao.respostaImg;
+        dropzone.dataset.acertou = "false"; 
+        dropzone.innerHTML = '<h2>?</h2>';
     });
-
-    // Preenche as opções de resposta arrastáveis
+    
     opcoesImagens.forEach((opcao, index) => {
         if (opcoesRespostas[index]) {
             opcao.src = `assets.jogos/${opcoesRespostas[index]}`;
-            opcao.style.opacity = "1"; // Garante que a imagem esteja visível
-            // Adiciona a imagem de volta ao seu container original se necessário
-            document.querySelectorAll(".container .box")[index].appendChild(opcao);
+            opcao.style.display = "block";
+        } else {
+            opcao.style.display = "none";
         }
     });
 };
 
-function verificarDropzones() {
-    const dropzones = document.querySelectorAll(".areasoltar");
-    const todasPreenchidas = [...dropzones].every(dz => dz.querySelector("img"));
-
-    if (todasPreenchidas) {
-        // Conta os acertos da fase
-        acertosFase = [...dropzones].filter(dz => dz.dataset.acertou === "true").length;
-
-        // Pega o total de acertos anterior do localStorage
-        let totalAcertos = parseInt(localStorage.getItem("totalAcertos")) || 0;
-
-        // Soma os acertos da fase ao total
-        totalAcertos += acertosFase;
-
-        // Salva o novo total e os acertos da fase no localStorage
-        localStorage.setItem("totalAcertos", totalAcertos);
-        localStorage.setItem("acertosFase", acertosFase);
-
-
-        // Mostra botão de continuar
-        document.getElementById("button-continuar").innerHTML = `
-      <a href="popup.html">
-        <button class="button-continuar">Continuar</button>
-      </a>
-    `;
-    }
-}
-
-// Roda o código quando o HTML estiver totalmente carregado
 document.addEventListener("DOMContentLoaded", () => {
-    const opcoesArrastaveis = document.querySelectorAll(".desafio-opcao");
-    const areasSoltar = document.querySelectorAll(".areasoltar");
-
-    opcoesArrastaveis.forEach(opcao => {
+    document.querySelectorAll(".desafio-opcao").forEach(opcao => {
         opcao.addEventListener("dragstart", handleDragStart);
         opcao.addEventListener("dragend", handleDragEnd);
     });
-
-    areasSoltar.forEach(area => {
+    document.querySelectorAll(".areasoltar").forEach(area => {
         area.addEventListener("dragover", handleDragOver);
         area.addEventListener("dragenter", handleDragEnter);
         area.addEventListener("dragleave", handleDragLeave);
         area.addEventListener("drop", handleDrop);
     });
+    
+    // Pega o botão do HTML e atribui a função ao clique
+    const button = document.getElementById('verificar-btn');
+    if (button) {
+        button.addEventListener('click', checarRespostas);
+    }
 
     comecarJogo();
 });
