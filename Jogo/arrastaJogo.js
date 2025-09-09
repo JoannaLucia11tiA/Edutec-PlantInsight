@@ -1,6 +1,6 @@
 let draggedElement = null;
 let acertosFase = 0;
-
+ 
 const desafios = [
     { id: 1, imagem: "sol.png", respostaImg: "plantadrop.png", resultado: "Fotossíntese" },
     { id: 2, imagem: "agua.png", respostaImg: "raizdrop.png", resultado: "Absorção de nutrientes" },
@@ -20,18 +20,22 @@ const desafios = [
 ];
 
  // 1. Ouve os cliques nos links de SAÍDA
- document.querySelectorAll(".sair").forEach(link => {
-    link.addEventListener("click", e => {
-      e.preventDefault(); // Impede o link de funcionar imediatamente
-      destinoSaida = link.href; // Guarda o endereço do link (ex: index.html)
-      
-      // Verifica se o link também tem a classe para limpar o progresso
-      limparProgresso = link.classList.contains('limpar-local');
-      
-      mostrarPopup2(); // Mostra o pop-up de confirmação
+ document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll(".sairpagina").forEach(link => {
+      link.addEventListener("click", e => {
+        e.preventDefault();
+        destinoSaida = link.href;
+        limparProgresso = link.classList.contains('limpar-local');
+        popup2arrasta();
+      });
     });
   });
-
+  function mostrarPopup2() {
+    document.getElementById("popup2").style.display = "block";
+  }
+  function fecharPopup2() {
+    document.getElementById("popup2").style.display = "none";
+  }
 
 
 // --- Funções de Drag and Drop (sem alterações) ---

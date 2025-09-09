@@ -148,6 +148,7 @@ body {
         display: inline-block; 
         transition: transform 0.4s ease, box-shadow 0.3s ease, opacity 0.3s ease;
         margin-block: 1rem;
+        margin: 1rem;
         
         img {
             width: 100%; 
