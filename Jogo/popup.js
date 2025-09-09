@@ -59,6 +59,11 @@ btnProxima.addEventListener("click", () => {
   // Pega a fase atual do localStorage (ou 0 se não existir)
   let faseAtual = parseInt(localStorage.getItem("faseAtual")) || 0;
 
+  // Marca a fase atual como completa
+  if (faseAtual > 0) {
+    localStorage.setItem(`Fase ${faseAtual}`, 'completa');
+  }
+
   // Incrementa
   faseAtual++;
 
@@ -72,6 +77,11 @@ btnProxima.addEventListener("click", () => {
 btnProxima2.addEventListener("click", () => {
   // Pega a fase atual do localStorage (ou 0 se não existir)
   let faseAtual = parseInt(localStorage.getItem("faseAtual")) || 0;
+
+  // Marca a fase atual como completa
+  if (faseAtual > 0) {
+    localStorage.setItem(`Fase ${faseAtual}`, 'completa');
+  }
 
   // Incrementa
   faseAtual++;

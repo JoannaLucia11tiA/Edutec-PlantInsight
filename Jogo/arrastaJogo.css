@@ -1,202 +1,201 @@
 *{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 :root{
-    --branco: #FFF;
-    --azul-cadete:#4FADAF;
-    --azul-opcao: #37598A;
-    --azul-bebe: #D9F2EF;
-    --botao-continuar: #B0E4DD;
-    --botao-texto-continuar: #32827F;
-    --azul-clarinho: #E6F6F4;
-    --azul-fases: #55ADAE;
-    --verde-bloqueado: #007F6D;
-    --verde-quadrinho: #008774;
-    --light-lemon: #DEF6B1;
-    --sair-x: #729B02;
-    --texto: #598801;
-    --botoes: #94E302;
-    
+  --branco: #FFF;
+  --azul-cadete:#4FADAF;
+  --azul-opcao: #37598A;
+  --azul-bebe: #D9F2EF;
+  --botao-continuar: #B0E4DD;
+  --botao-texto-continuar: #32827F;
+  --azul-clarinho: #E6F6F4;
+  --azul-fases: #55ADAE;
+  --verde-bloqueado: #007F6D;
+  --verde-quadrinho: #008774;
+  --light-lemon: #DEF6B1;
+  --sair-x: #729B02;
+  --texto: #598801;
+  --botoes: #94E302;
+  
 }
 body{
-    background-color: var(--azul-bebe);
-    font-family: "Raleway", sans-serif;
-    font-optical-sizing: auto;
-    font-weight:weight;
-    font-style: normal;
+  background-color: var(--azul-bebe);
+  font-family: "Raleway", sans-serif;
+  font-optical-sizing: auto;
+  font-weight:weight;
+  font-style: normal;
 
-     
+   
 }
 img{
-    width: 5.8rem;
+  width: 5.8rem;
 }
 header{
-    display: flex;
-    justify-content: space-between; 
-    background-color: #FFF;
-    padding-block: 0.7rem;
+  display: flex;
+  justify-content: space-between; 
+  background-color: #FFF;
+  padding-block: 0.7rem;
 
-    a{
-        text-decoration: none;
-        color: var(--azul-cadete);
-    }
-    .voltar-home{
-        display: flex;
-        align-items: center;
-        margin-left: 1.6rem;
-        gap: 0.6rem;
-        color: var(--azul-cadete);
-        font-family:"Raleway", sans-serif;
-    }
-    .opcoes-paginas{
-        display: flex;
-        align-items: center;
-        margin-right: 4.6rem;
-        gap: 1.6rem;
-        font-size: 12px;
-        color: var(--azul-cadete);
-    }
+  a{
+      text-decoration: none;
+      color: var(--azul-cadete);
+  }
+  .voltar-home{
+      display: flex;
+      align-items: center;
+      margin-left: 1.6rem;
+      gap: 0.6rem;
+      color: var(--azul-cadete);
+      font-family:"Raleway", sans-serif;
+  }
+  .opcoes-paginas{
+      display: flex;
+      align-items: center;
+      margin-right: 4.6rem;
+      gap: 1.6rem;
+      font-size: 12px;
+      color: var(--azul-cadete);
+  }
 }
 .pagina-aberta{
-    color: var(--azul-opcao);
+  color: var(--azul-opcao);
 }
 
 /*----------------------------------------------------------*/
 
 .box{
-    height: 10rem;
+  height: 10rem;
 }
 section{
-    display: flex;
-    gap: 4rem;
-    margin-left: 5rem;
-    
+  display: flex;
+  gap: 4rem;
+  margin-left: 5rem;
+  
 }
 .areasoltar{
-    padding: 1rem;
-    h2{
-        color: #55ADAE;
-        font-weight: 800;
-    }
-    
-    
+  padding: 1rem;
+  h2{
+      color: #55ADAE;
+      font-weight: 800;
+  }
+  
+  
 
 }
 .soltarOpcoes{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 3rem;
-    padding-left: 2rem;
-    
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  padding-left: 2rem;
+  
 }
 /*--------------------------------------------------------------*/
 /* Container com as 3 boxes */
-    .container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 1rem;
-    margin-inline: 2rem;
-    
-    background-color: var(--branco);
-    padding-inline: 3rem;
-    padding-block: 1rem;
-    border-radius: 3rem;
-    height: 24rem;
-    width: 14rem;
-  }
+  .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-inline: 2rem;
   
-  /* Cada box de desafio */
-  .box {
-    display: flex;
-    align-items: center;
-    border-radius: 2rem;
-    padding: 1rem;
-    flex: 1;
-    
-  }
-  .enquadrar{
-    display: flex;
-    justify-content: center; /* centraliza verticalmente dentro da própria div */
-    align-items: flex-start;     /* centraliza horizontalmente */
-    padding-top: 3rem;
-    background-color: var(--verde-quadrinho);
-    width: 55rem;
-    height: 33rem;
-    margin: 0 auto;      
-    margin-top: 3rem;
-    border-radius: 3rem;
+  background-color: var(--branco);
+  padding-inline: 3rem;
+  padding-block: 1rem;
+  border-radius: 3rem;
+  height: 24rem;
+  width: 14rem;
+}
 
-    position: relative; /* 🔹 necessário pro botão ficar dentro */
-    background-color: var(--verde-quadrinho);
-    
+/* Cada box de desafio */
+.box {
+  display: flex;
+  align-items: center;
+  border-radius: 2rem;
+  padding: 1rem;
+  flex: 1;
+  
+}
+.enquadrar{
+  display: flex;
+  justify-content: center; /* centraliza verticalmente dentro da própria div */
+  align-items: flex-start;     /* centraliza horizontalmente */
+  padding-top: 3rem;
+  background-color: var(--verde-quadrinho);
+  width: 55rem;
+  height: 33rem;
+  margin: 0 auto;      
+  margin-top: 3rem;
+  border-radius: 3rem;
 
-    img{
-        height: 5rem;
-        width: 5rem;
-      }
-  }  
-  .balao{
-    display: flex;
-    background-color: #FFF;
-    align-items: center;
-    width: 30rem;
-    border-radius: 1.7rem;
-    height: 6rem;
-    justify-content: space-between;
-    padding-inline: 2rem;
-  }
+  position: relative; /* 🔹 necessário pro botão ficar dentro */
+  background-color: var(--verde-quadrinho);
   
-  /* 🔹 Botão X */
-  .sair {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    background-color: transparent;
-    color: var(--branco);
-    font-size: 1.7rem;
-    font-weight: 500;
-    border-radius: 50%;
-    width: 2.2rem;
-    height: 2.2rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: 0.3s;
-    margin-top: 1rem;
-    margin-right: 1rem;
-    text-decoration: none;
-  }
-  
-  .sair:hover {
-    background-color: var(--branco);
-    color: var(--azul-cadete);
-  }
-  
-  /* 🔹 Botão Continuar fixo embaixo e centralizado */
-  #button-continuar {
 
-    position: absolute;
-    bottom: 2rem;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-  .button-continuar{
-    padding: 0.7rem;
-    padding-inline: 5rem;
-    font-size: 1rem;
-    font-weight: 700;
-    background-color: var(--botao-continuar);
-    border: none;
-    color: var(--botao-texto-continuar);
-    border-radius: 1rem;
-  }
-  .button-continuar:hover{
-    background-color: var(--branco);
-  }
-  
+  img{
+      height: 5rem;
+      width: 5rem;
+    }
+}  
+.balao{
+  display: flex;
+  background-color: #FFF;
+  align-items: center;
+  width: 30rem;
+  border-radius: 1.7rem;
+  height: 6rem;
+  justify-content: space-between;
+  padding-inline: 2rem;
+}
+
+/* 🔹 Botão X */
+.sair {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background-color: transparent;
+  color: var(--branco);
+  font-size: 1.7rem;
+  font-weight: 500;
+  border-radius: 50%;
+  width: 2.2rem;
+  height: 2.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-top: 1rem;
+  margin-right: 1rem;
+  text-decoration: none;
+}
+
+.sair:hover {
+  background-color: var(--branco);
+  color: var(--azul-cadete);
+}
+
+/* 🔹 Botão Continuar fixo embaixo e centralizado */
+#button-continuar {
+
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.button-continuar{
+  padding: 0.7rem;
+  padding-inline: 5rem;
+  font-size: 1rem;
+  font-weight: 700;
+  background-color: var(--botao-continuar);
+  border: none;
+  color: var(--botao-texto-continuar);
+  border-radius: 1rem;
+}
+.button-continuar:hover{
+  background-color: var(--branco);
+}

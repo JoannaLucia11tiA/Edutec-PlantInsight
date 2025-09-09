@@ -1,126 +1,92 @@
-// if (!sessionStorage.getItem("sessao_ativa")) {
-//   // Se não existir, é porque o usuário saiu antes → limpa o localStorage
-//   localStorage.clear();
-// }
-
-// // Marca que a sessão está ativa
-// sessionStorage.setItem("sessao_ativa", "true");
-
-function mostrarPopup2() {
-  document.getElementById("popup2").style.display = "block";
-  document.getElementById("overlay").style.display = "block";
+// Funções de controle dos Pop-ups
+function mostrarPopup1() {
+  document.getElementById("popup1").style.display = "flex";
 }
-
-function fecharPopup2() {
-  document.getElementById("popup2").style.display = "none";
-  document.getElementById("overlay").style.display = "none";
-}
-
-document.getElementById("fechar").addEventListener("click", fecharPopup2);
-
-
-window.addEventListener("pageshow", () => {
-  if (!localStorage.getItem("visitou")) {
-    
-    localStorage.setItem("visitou", "sim");
-  }
-});
-
-
-document.querySelectorAll("a.limpar-local").forEach(link => {
-  link.addEventListener("click", () => {
-    localStorage.clear();
-  });
-});
-
-document.addEventListener("DOMContentLoaded", () => {
-  const popup1 = document.getElementById("popup1");
-
-  
-  if (!localStorage.getItem("popup1Mostrado")) {
-    popup1.style.display = "flex"; 
-  }
-});
-
 function fecharPopup1() {
   const popup1 = document.getElementById("popup1");
   popup1.style.display = "none"; 
   localStorage.setItem("popup1Mostrado", "true"); 
 }
-  function fecharPopup2() {
-    document.getElementById("popup2").style.display = "none";
+
+function mostrarPopup2() {
+  document.getElementById("popup2").style.display = "block";
+}
+function fecharPopup2() {
+  document.getElementById("popup2").style.display = "none";
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  let destinoSaida = null; // Variável para guardar para onde o usuário quer ir
+  let limparProgresso = false; // Flag para saber se precisa limpar o progresso
+
+  // --- LÓGICA DO POP-UP DE REGRAS ---
+  if (!localStorage.getItem("popup1Mostrado")) {
+    mostrarPopup1();
   }
 
-  const links = document.querySelectorAll(".sair");
-  const popup = document.getElementById("popup2");
-  const fechar = document.getElementById("fechar");
-  
- 
-  links.forEach(link => {
+  // --- LÓGICA DO POP-UP "CERTEZA QUE DESEJA SAIR?" ---
+
+  // 1. Ouve os cliques nos links de SAÍDA
+  document.querySelectorAll(".sair").forEach(link => {
     link.addEventListener("click", e => {
-      e.preventDefault();
-      popup.style.display = "flex";
+      e.preventDefault(); // Impede o link de funcionar imediatamente
+      destinoSaida = link.href; // Guarda o endereço do link (ex: index.html)
+      
+      // Verifica se o link também tem a classe para limpar o progresso
+      limparProgresso = link.classList.contains('limpar-local');
+      
+      mostrarPopup2(); // Mostra o pop-up de confirmação
     });
   });
-  
-  fechar.addEventListener("click", () => {
-    popup.style.display = "none";
+
+  // 2. Ouve o clique no botão "NÃO"
+  document.getElementById("fechar").addEventListener("click", () => {
+    fecharPopup2();
+    destinoSaida = null; // Esquece o destino
+    limparProgresso = false; // Esquece se precisa limpar
   });
-  //-------------------------------------------------------------------------------------------------------
-  const niveis = document.querySelectorAll(".nivel"); // pega todos os elementos com a classe "nivel"
 
-  niveis.forEach(nivel => {
-      if(nivel.classList.contains("desbloqueado")) {
-          // Seleciona todos os botões de fase
-        const botoesFases = document.querySelectorAll(".botao-fase");
+  // 3. Ouve o clique no botão "SIM"
+  document.getElementById("popup-sim").addEventListener("click", () => {
+    if (destinoSaida) {
+      if (limparProgresso) {
+        localStorage.clear(); // Se precisar, limpa o progresso
+      }
+      window.location.href = destinoSaida; // Leva o usuário para o destino
+    }
+  });
 
-        botoesFases.forEach(botao => {
-        botao.addEventListener("click", () => {
-        const numeroFase = parseInt(botao.dataset.fase); // pega o número da fase
-        localStorage.setItem("faseAtual", numeroFase); // salva no localStorage
-        console.log("Fase selecionada:", numeroFase);
 
-    // Redireciona para a página do jogo (opcional)
-    // window.location.href = "jogo.html";
+  // --- LÓGICA DE DESBLOQUEIO DE NÍVEIS (COMPLETA) ---
+  const desbloquearNivel = (numeroNivel, tipoJogo) => {
+    const nivel = document.querySelector(`.nivel-${numeroNivel}`);
+    if (nivel) {
+      nivel.classList.remove("bloqueado");
+      nivel.classList.add("desbloqueado");
+      nivel.querySelector('a').innerHTML = numeroNivel;
+      nivel.querySelector('a').setAttribute("href", `${tipoJogo}.html`);
+    }
+  };
+
+  for (let i = 1; i < 20; i++) {
+    if (localStorage.getItem(`Fase ${i}`) === 'completa') {
+      const proximoNivel = i + 1;
+      const tipoJogo = proximoNivel % 2 === 0 ? 'arrastaJogo' : 'perguntas';
+      desbloquearNivel(proximoNivel, tipoJogo);
+    }
+  }
+
+  // --- LÓGICA PARA PEGAR A FASE ATUAL (COM DELEGAÇÃO DE EVENTOS) ---
+  document.body.addEventListener("click", (event) => {
+    const linkClicado = event.target.closest(".botao-fase a");
+    if (linkClicado) {
+      const nivelPai = linkClicado.closest(".botao-fase");
+      if (nivelPai && nivelPai.classList.contains("desbloqueado")) {
+        event.preventDefault();
+        const numeroFase = nivelPai.dataset.fase;
+        localStorage.setItem("faseAtual", numeroFase);
+        window.location.href = linkClicado.href;
+      }
+    }
   });
 });
-      }
-  });
-  
-  //-----------------------------------
-  if (localStorage.getItem('Fase 1') === 'completa') {
-      const niveis = document.querySelectorAll(".nivel-2")
-      niveis[0].classList.remove("bloqueado")
-      niveis[0].classList.add("desbloqueado")
-      niveis[0].children[0].innerHTML = 2
-      niveis[0].children[0].setAttribute("href", "arrastaJogo.html"); 
-
-} if (localStorage.getItem('Fase 2') === 'completa') {
-      const niveis = document.querySelectorAll(".nivel-3")
-      niveis[0].classList.remove("bloqueado")
-      niveis[0].classList.add("desbloqueado")
-      niveis[0].children[0].innerHTML = 3
-      niveis[0].children[0].setAttribute("href", "perguntas.html"); 
-
-} if (localStorage.getItem('fase3') === 'completa') {
-      const niveis = document.querySelectorAll(".nivel-4")
-      niveis[0].classList.remove("bloqueado")
-      niveis[0].classList.add("desbloqueado")
-      niveis[0].children[0].innerHTML = 4
-      niveis[0].children[0].setAttribute("href", "arrastaJogo.html"); 
-
-
-}
-// ... continue até a fase 20
-
-  
-
- // if(localStorage.getItem('Fase 1') === 'completa'){
-  //   const niveis = document.querySelectorAll(".nivel")
-  //   niveis[0].classList.remove("bloqueado")
-  //   niveis[0].classList.add("desbloqueado")
-  //   niveis[0].children[0].innerHTML = 2
-  // }
-  
- 
-

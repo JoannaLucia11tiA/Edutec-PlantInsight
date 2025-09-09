@@ -72,6 +72,8 @@ img {
     margin: 0.4rem 8rem 6.9rem 8rem;
     border-radius: 1.5rem;
 
+
+
     h3 {
         /*---gambiarra pra deixar "p" na esquerda---*/
         font-family: "Raleway", sans-serif;
@@ -91,8 +93,8 @@ img {
         font-weight: normal;
         letter-spacing: 2px;
     }
-
 }
+
 
 /* ===== ÍCONES + MENU ===== */
 .icones {
@@ -150,7 +152,7 @@ img {
 }
 
 /* Títulos */
-h2 {
+.conteudo-todo h2 {
     font-size: 1.5rem;
     font-weight: bold;
     margin: 1.5rem 0 0.8rem;
@@ -164,11 +166,21 @@ h2 {
     font-size: 1rem;
   }
   
+  .titulo-1 {
+    margin-bottom: 1rem;
+    color: var(--azul-opcao);
+  }
+  
   /* Layout em duas colunas */
   .conteudo-todo {
     display: flex;
     gap: 2rem;             /* espaço entre as colunas */
     align-items: flex-start;
+    padding: 2rem 3rem;
+    margin: 2rem auto 3rem auto;
+    max-width: 1000px;
+    width: 1000px;
+   
   }
   
   /* cada coluna ocupa metade */

@@ -123,18 +123,18 @@ body {
     overflow: hidden; /* esconde elementos fora */
     width: 100%;
 
-    .overlay {
-        position: absolute;     /* ou fixed se quiser que fique parado na tela */
-        top: 2rem;             /* posição vertical */
-        left: -0.3rem;             /* posição horizontal */
-        width: 12.3rem;           /* largura da área */
-        height: 12.3rem;          /* altura da área */
-        background: var(--branco); /* preto com opacidade */
-        z-index: 998;           /* fica por cima de tudo */
-        pointer-events: none;   /* importante: não bloqueia cliques */
-        border-radius: 1.5rem;
-        opacity: 0.5; /* padrão: mais apagado */
-    }
+    /* .overlay { */
+        /* position: absolute;     ou fixed se quiser que fique parado na tela */
+        /*top: 2rem;              posição vertical */
+        /*left: -0.3rem;              posição horizontal */
+        /*width: 12.3rem;            largura da área */
+        /* height: 12.3rem;          /* altura da área */
+        /* background: var(--branco); /* preto com opacidade */
+        /* z-index: 998;           /* fica por cima de tudo */
+        /* pointer-events: none;   /* importante: não bloqueia cliques */
+        /* border-radius: 1.5rem;
+        /* opacity: 0.5;  
+    } */
 
     /* ocupa toda a largura */
     .siema {
@@ -182,44 +182,29 @@ body {
 
     /* Botões de navegação (setas esquerda/direita) */
     button {
-        position: absolute;
-        /* posiciona em relação ao carrossel */
-        top: 50%;
-        /* coloca o botão no meio vertical */
-        transform: translateY(-50%);
-        /* ajusta o alinhamento vertical */
-        background: var(--branco);
-        /* fundo branco */
-        border: none;
-        /* remove a borda padrão */
-        font-size: 1.8rem;
-        /* tamanho do ícone da seta */
-        border-radius: 50%;
-        /* deixa o botão redondo */
-        width: 2.5rem;
-        /* largura do botão (40px) */
-        height: 2.5rem;
-        /* altura do botão (40px) */
-        cursor: pointer;
-        /* cursor de mãozinha */
-        transition: background 0.3s;
-        /* animação ao passar o mouse */
-        z-index: 10;
-        /* garante que fique acima dos cards */
+        position: absolute; /* posiciona em relação ao carrossel */
+        top: 50%; /* coloca o botão no meio vertical */
+        transform: translateY(-50%); /* ajusta o alinhamento vertical */
+        background: var(--branco); /* fundo branco */
+        border: none; /* remove a borda padrão */
+        font-size: 1.8rem; /* tamanho do ícone da seta */
+        border-radius: 50%; /* deixa o botão redondo */
+        width: 2.5rem; /* largura do botão (40px) */
+        height: 2.5rem; /* altura do botão (40px) */
+        cursor: pointer; /* cursor de mãozinha */
+        transition: background 0.3s; /* animação ao passar o mouse */
+        z-index: 10; /* garante que fique acima dos cards */
     }
 
     button {
-        background: var(--ciano-claro);
-        /* mantém o fundo branco no hover */
+        background: var(--ciano-claro); /* mantém o fundo branco no hover */
     }
 
     .prev {
-        left: 0.625rem;
-        /* posiciona o botão da esquerda (10px da borda) */
+        left: 0.625rem; /* posiciona o botão da esquerda (10px da borda) */
     }
 
     .next {
-        right: 0.625rem;
-        /* posiciona o botão da direita (10px da borda) */
+        right: 0.625rem; /* posiciona o botão da direita (10px da borda) */
     }
 }
