@@ -271,10 +271,18 @@ let questoesQuiz = [
     respostaCorreta: 1
   }
 ]
+function mostrarPopup2perguntas() {
+  document.getElementById("popup2perguntas").style.display = "block";
+}
+function fecharPopup2() {
+  document.getElementById("popup2perguntas").style.display = "none";
+}
 
 
- // 1. Ouve os cliques nos links de SAÍDA
-  document.querySelectorAll(".sair").forEach(link => {
+  
+
+  // 1. Ouve os cliques nos links de SAÍDA
+  document.querySelectorAll(".sairpagina").forEach(link => {
     link.addEventListener("click", e => {
       e.preventDefault(); // Impede o link de funcionar imediatamente
       destinoSaida = link.href; // Guarda o endereço do link (ex: index.html)
@@ -282,10 +290,28 @@ let questoesQuiz = [
       // Verifica se o link também tem a classe para limpar o progresso
       limparProgresso = link.classList.contains('limpar-local');
       
-      mostrarPopup2(); // Mostra o pop-up de confirmação
-    });
+      mostrarPopup2perguntas(); // Mostra o pop-up de confirmação
+    }); 
   });
 
+  // 2. Ouve o clique no botão "NÃO"
+  document.getElementById("fechar").addEventListener("click", () => {
+    fecharPopup2();
+    destinoSaida = null; // Esquece o destino
+    limparProgresso = false; // Esquece se precisa limpar
+  });
+
+  // 3. Ouve o clique no botão "SIM"
+  document.getElementById("popup-sim").addEventListener("click", () => {
+    if (destinoSaida) {
+      if (limparProgresso) {
+        localStorage.clear(); // Se precisar, limpa o progresso
+      }
+      window.location.href = destinoSaida; // Leva o usuário para o destino
+    }
+  });
+
+  
 
 //Constantes
 const maximoQuestoes = 1

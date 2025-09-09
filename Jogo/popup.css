@@ -16,7 +16,9 @@
     --sair-x: #729B02;
     --texto: #598801;
     --botoes: #94E302;
-
+    --verde-lima: #DEF6B1;
+    --verde-dark: #6FAA02;
+    --verde-escurin: #598801;
     
 }
 body{
@@ -434,7 +436,7 @@ header{
     }
 }
 
-#popup2 {
+#popup2popup {
     display: none; 
     position: fixed;
     top: 0;
@@ -448,7 +450,7 @@ header{
   }
   
   
-  #popup2 a {
+  #popup2popup a {
     text-decoration: none;
   }
   
@@ -510,7 +512,7 @@ header{
 
     
 
-    .mensagem-fim{
+    .mensagem-vitoria{
         display: flex;
         justify-content: center;
         align-items: center;
@@ -535,8 +537,9 @@ header{
     p{
         color: var(--texto);
         font-weight: 790;
-        font-size: 1.9rem;
+        font-size: 2rem;
         text-align: left;
+        margin-top: 1rem;
     }
     button{
         width: 100%;

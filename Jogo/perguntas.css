@@ -15,7 +15,9 @@
     --verde-quadrinho: #008774;
     --verde-vivo: #94E302;
     --vermelho: #F93C3C;
-    
+    --verde-lima: #DEF6B1;
+    --verde-dark: #6FAA02;
+    --verde-escurin: #598801;
 }
 body{
     background-color: var(--azul-clarinho);
@@ -188,7 +190,7 @@ main {
     background-color: var(--branco);
 }
 
-#popup2 {
+#popup2perguntas {
     display: none; 
     position: fixed;
     top: 0;
@@ -202,7 +204,7 @@ main {
   }
   
   
-  #popup2 a {
+  #popup2perguntas a {
     text-decoration: none;
   }
   
@@ -240,7 +242,7 @@ main {
     cursor: pointer;
   }
   
-  .popup-ctzsair .espaco {
+  .popup-ctzsair .espaco { 
     margin-right: 1.5rem;
   }
   

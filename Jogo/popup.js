@@ -68,7 +68,7 @@ window.addEventListener('DOMContentLoaded', () => {
       if (popupFim) {
           popupFim.style.display = 'block';
           limparProgressoFases(); // Limpa o tabuleiro para o próximo jogo
-
+          reiniciarJogoCompleto();
           const btnJogarNovamenteDerrota = popupFim.querySelector('a');
           if(btnJogarNovamenteDerrota) {
               btnJogarNovamenteDerrota.addEventListener('click', (e) => {
@@ -146,7 +146,7 @@ document.querySelectorAll(".sair").forEach(link => {
       e.preventDefault();
       destinoSaida = link.href;
       limparProgresso = link.classList.contains('limpar-local');
-      const popupSair = document.getElementById("popup2");
+      const popupSair = document.getElementById("popup2popup");
       if(popupSair) popupSair.style.display = "block";
   });
 });
@@ -159,6 +159,43 @@ document.getElementById('popup-sim')?.addEventListener('click', () => {
 });
 
 document.getElementById('fechar')?.addEventListener('click', () => {
-  const popupSair = document.getElementById("popup2");
+  const popupSair = document.getElementById("popup2popup");
   if(popupSair) popupSair.style.display = "none";
 });
+
+
+// 1. Ouve os cliques nos links de SAÍDA
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll(".sairpagina").forEach(link => {
+      link.addEventListener("click", e => {
+        e.preventDefault();
+        destinoSaida = link.href;
+        limparProgresso = link.classList.contains('limpar-local');
+        popup2popup();
+      });
+    });
+  });
+  
+  // 2. Ouve o clique no botão "NÃO"
+  document.getElementById("fechar").addEventListener("click", () => {
+    fecharPopup2();
+    destinoSaida = null; // Esquece o destino
+    limparProgresso = false; // Esquece se precisa limpar
+  });
+
+  // 3. Ouve o clique no botão "SIM"
+  document.getElementById("popup-sim").addEventListener("click", () => {
+    if (destinoSaida) {
+      if (limparProgresso) {
+        localStorage.clear(); // Se precisar, limpa o progresso
+      }
+      window.location.href = destinoSaida; // Leva o usuário para o destino
+      
+    }
+  });
+  function popup2popup() {
+    document.getElementById("popup2arrasta").style.display = "block";
+  }
+  function fecharPopup2() {
+    document.getElementById("popup2arrasta").style.display = "none";
+  }

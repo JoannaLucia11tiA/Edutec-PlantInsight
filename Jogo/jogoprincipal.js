@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
       limparProgresso = link.classList.contains('limpar-local');
       
       mostrarPopup2(); // Mostra o pop-up de confirmação
-    });
+    }); 
   });
 
   // 2. Ouve o clique no botão "NÃO"

@@ -30,11 +30,29 @@ const desafios = [
       });
     });
   });
-  function mostrarPopup2() {
-    document.getElementById("popup2").style.display = "block";
+  
+  // 2. Ouve o clique no botão "NÃO"
+  document.getElementById("fechar").addEventListener("click", () => {
+    fecharPopup2();
+    destinoSaida = null; // Esquece o destino
+    limparProgresso = false; // Esquece se precisa limpar
+  });
+
+  // 3. Ouve o clique no botão "SIM"
+  document.getElementById("popup-sim").addEventListener("click", () => {
+    if (destinoSaida) {
+      if (limparProgresso) {
+        localStorage.clear(); // Se precisar, limpa o progresso
+      }
+      window.location.href = destinoSaida; // Leva o usuário para o destino
+      
+    }
+  });
+  function popup2arrasta() {
+    document.getElementById("popup2arrasta").style.display = "block";
   }
   function fecharPopup2() {
-    document.getElementById("popup2").style.display = "none";
+    document.getElementById("popup2arrasta").style.display = "none";
   }
 
 
@@ -83,6 +101,17 @@ function checarRespostas() {
 
     window.location.href = "./popup.html";
 }
+
+function limparProgressoFases() {
+    console.log("Limpando progresso de fases...");
+    localStorage.removeItem('faseAtual');
+    for (let i = 1; i <= 20; i++) {
+        localStorage.removeItem(`Fase ${i}`);
+    }
+    localStorage.removeItem('resultadoPergunta');
+    localStorage.removeItem('acertosFase');
+    localStorage.removeItem('popup1Mostrado');
+  }
 
 // Mostra o botão que já existe no HTML
 function verificarSeTodasPreenchidas() {

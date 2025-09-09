@@ -226,7 +226,8 @@ img {
   /* Imagens */
   .lado-esquerdo img,
   .lado-direito img {
-    width: 515px;
+    width: 100%;
+    height: 17rem;
     border-radius: 8px;
     object-fit: cover;
     margin-bottom: 15px;
