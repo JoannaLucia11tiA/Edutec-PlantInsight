@@ -19,6 +19,25 @@ document.addEventListener("DOMContentLoaded", () => {
   let destinoSaida = null; // Variável para guardar para onde o usuário quer ir
   let limparProgresso = false; // Flag para saber se precisa limpar o progresso
 
+  // --- LÓGICA DAS VIDAS ---
+  // Se não houver vidas no localStorage, define como 3
+  if (getVidas() === null) {
+    resetaVidas();
+  }
+
+  const vidasAtuais = getVidas();
+  const heart1 = document.getElementById("heart1");
+  const heart2 = document.getElementById("heart2");
+  const heart3 = document.getElementById("heart3");
+
+  if (vidasAtuais == 0) {
+    window.location.href = "./popup.html";
+  } else {
+    heart1.src = vidasAtuais < 1 ? "assets.jogos/perdeucoracao.png" : "assets.jogos/corcaovida.png";
+    heart2.src = vidasAtuais < 2 ? "assets.jogos/perdeucoracao.png" : "assets.jogos/corcaovida.png";
+    heart3.src = vidasAtuais < 3 ? "assets.jogos/perdeucoracao.png" : "assets.jogos/corcaovida.png";
+  }
+
   // --- LÓGICA DO POP-UP DE REGRAS ---
   if (!localStorage.getItem("popup1Mostrado")) {
     mostrarPopup1();

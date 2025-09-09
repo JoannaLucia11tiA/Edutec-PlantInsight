@@ -69,7 +69,7 @@ img {
 
     background-color: var(--azul-bebe);
     padding: 2.4rem 8rem;
-    margin: 0.4rem 8rem 6.9rem 8rem;
+    margin: 0.4rem 8rem 5rem 8rem;
     border-radius: 1.5rem;
 
 
@@ -104,8 +104,9 @@ img {
     /* alinhados pelo topo */
     gap: 5rem;
     /* espaçamento maior */
-    margin: 2rem auto;
+    
     align-items: center;
+    margin-bottom: 6rem;
 }
 
 .icones div {
@@ -130,6 +131,7 @@ img {
     font-size: 0.9rem;
     font-weight: 500;
     color: #222;
+    font-weight: bold;
 }
 
 
@@ -140,15 +142,45 @@ img {
 .processos-vitais {
     background-color: var(--dark);
     color: var(--branco);
-    padding: 2rem 5rem;
-    margin: 0;
-    width: 100%;
+    padding: 2rem 3rem;
+    margin: 2rem auto 3rem auto;
+    width: 1000px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 2rem;
     line-height: 1.6rem;
     box-sizing: border-box;
+
+    h3 {
+        color: var(--verde);
+        font-family: "Merriweather", sans-serif;
+        font-weight: normal;
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+    }
+
+    .texto-1 {
+        font-family: "Raleway", sans-serif;
+        color: var(--verde);
+        font-size: 1.2rem;
+        text-align: justify;
+        width: 45%;
+        display: inline-block;
+        float: left;
+    }
+
+    .texto-2 {
+        font-family: "Raleway", sans-serif;
+        color: var(--verde);
+        font-size: 1.2rem;
+        text-align: justify;
+        width: 45%;
+        display: inline-block;
+        float: right;
+    }
+    
+    
 }
 
 /* Títulos */
@@ -192,10 +224,11 @@ img {
   /* Imagens */
   .lado-esquerdo img,
   .lado-direito img {
-    width: 4rem;           /* ocupa toda a largura da coluna */
-    border-radius: 0.2rem;
-    margin: 4rem 0;
-    display: block;
+    width: 515px;
+    border-radius: 8px;
+    object-fit: cover;
+    margin-bottom: 15px;
+
   }
   
 
