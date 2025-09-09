@@ -88,9 +88,6 @@ p2{
   margin: 40px 0;
 }
 
-.textos-imagem:nth-child(even) {
-  flex-direction: row-reverse;
-}
 
 .textos-imagem img {
   width: 280px;
