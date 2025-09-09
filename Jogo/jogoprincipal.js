@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
       
       mostrarPopup2(); // Mostra o pop-up de confirmação
     }); 
-  });
+  }); 
 
   // 2. Ouve o clique no botão "NÃO"
   document.getElementById("fechar").addEventListener("click", () => {

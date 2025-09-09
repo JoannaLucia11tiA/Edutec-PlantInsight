@@ -141,6 +141,8 @@ document.getElementById("play-fase2")?.addEventListener("click", avancarFase);
 let destinoSaida = '';
 let limparProgresso = false;
 
+
+
 document.querySelectorAll(".sair").forEach(link => {
   link.addEventListener("click", e => {
       e.preventDefault();

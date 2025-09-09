@@ -18,6 +18,8 @@ const desafios = [
     { id: 26, imagem: "flordrop.png", resultado: "Formação do fruto", respostaImg: "ovulofecundadodrop.png" },
     { id: 29, imagem: "raizdrop.png", resultado: "Geotropismo", respostaImg: "gravidade.png" },
 ];
+//salvar
+let limparProgresso = false;
 
  // 1. Ouve os cliques nos links de SAÍDA
  document.addEventListener('DOMContentLoaded', () => {

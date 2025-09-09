@@ -271,6 +271,9 @@ let questoesQuiz = [
     respostaCorreta: 1
   }
 ]
+
+let limparProgresso = false;
+
 function mostrarPopup2perguntas() {
   document.getElementById("popup2perguntas").style.display = "block";
 }
@@ -308,7 +311,7 @@ function fecharPopup2() {
         localStorage.clear(); // Se precisar, limpa o progresso
       }
       window.location.href = destinoSaida; // Leva o usuário para o destino
-    }
+    } 
   });
 
   

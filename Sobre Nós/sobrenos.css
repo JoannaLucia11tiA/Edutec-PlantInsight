@@ -10,7 +10,7 @@
     --azul-cinza: #486794;
 }
 body{
-    background-color: var(--azul-cadete);
+    background-color: var(--branco);
     font-family: "Raleway", sans-serif;
     font-optical-sizing: auto;
     font-weight:weight;
@@ -49,6 +49,166 @@ header{
 .pagina-aberta{
     color: var(--azul-opcao);
 }
+
+
+/* ================= SOBRE NÓS ================= */
+
+.conteudo-todo {
+    max-width: 68rem; 
+    margin: 0 auto;
+    padding: 2rem;
+    background: var(--branco);
+    border-radius: 1rem;
+    position: relative;
+    margin-bottom: 3rem;
+  }
+  
+  /* Título principal */
+  .titulo {
+    text-align: center;
+    margin: 3rem 0 2rem;
+    position: relative;
+  }
+  
+  .titulo h1 {
+    font-size: 2.4rem;
+    color: var(--azul-opcao);
+    font-weight: 700;
+  }
+  
+  .titulo img {
+    position: absolute;
+    width: 1.6rem;
+    height: auto;
+  }
+  
+  /* Ícones decorativos */
+  .titulo img:nth-child(2) { top: -0.8rem; left: 42%; }
+  .titulo img:nth-child(3) { top: 0; right: 42%; }
+  .titulo img:nth-child(4) { bottom: -0.8rem; left: 40%; }
+  .titulo img:nth-child(5) { bottom: -1rem; right: 40%; }
+  
+  /* Imagens horizontais */
+  .imagem-1 img,
+  .imagem-2 img,
+  .imagem-3 img,
+  .imagem-4 img {
+    width: 12.5rem;   /* ~200px */
+    height: 9rem;     /* ~140px */
+    object-fit: cover;
+    border-radius: 0.8rem;
+    margin: 0.5rem;
+  }
+  
+  .imagem-1,
+  .imagem-2,
+  .imagem-3,
+  .imagem-4 {
+    display: inline-block;
+  }
+
+  
+  /* Textos */
+  .conteudo-todo h4 {
+    text-align: left;
+    margin: 2rem 0 0.6rem;
+    color: var(--azul-cinza);
+    font-size: 1.2rem;
+    font-weight: 700;
+  }
+  
+  .conteudo-todo p {
+    text-align: left;
+    margin-bottom: 0.8rem;
+    color: #333;
+    font-size: 1rem;
+  }
+
+  .ondas {
+    position: absolute;
+    top: 5rem; /* ajusta a altura do início das ondas */
+    left: 0;
+    width: 100%;
+    z-index: -1; /* joga para trás das imagens */
+    width: 100%;
+    height: auto;
+    display: block;
+ }
+
+  
+  /* Retângulo azul (Objetivos) */
+  .retangulo {
+    background-color: var(--azul-opcao);
+    border-radius: 0.6rem;
+    padding: 1.6rem;
+    margin: 2rem 0;
+    text-align: left;
+    color: var(--branco);
+  }
+  
+  .retangulo h4 {
+    color: var(--branco);
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+  }
+  
+  .retangulo p {
+    margin-bottom: 0.5rem;
+    color: #f1f1f1;
+    font-size: 1rem;
+  }
+  
+  /* Flor decorativa */
+  .flor {
+    position: absolute;
+    right: 6%;
+    bottom: 8rem;
+    width: 7rem;
+  }
+  
+  .flor img {
+    width: 100%;
+  }
+  
+  /* Seção responsáveis */
+  .responsaveis {
+    margin-top: 3rem;
+    text-align: center;
+  }
+  
+  .responsaveis h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--azul-cadete);
+    margin-bottom: 2rem;
+  }
+  
+  /* Cards dos responsáveis */
+  .responsaveis > div {
+    display: inline-block;
+    margin: 0 1rem;
+    text-align: center;
+  }
+  
+  .responsaveis img {
+    width: 7.5rem;
+    height: 7.5rem;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 0.3rem solid #d8f5f4;
+    margin-bottom: 0.6rem;
+  }
+  
+  .responsaveis h4 {
+    font-size: 1rem;
+    margin-bottom: 0.2rem;
+    color: var(--azul-opcao);
+  }
+  
+  .responsaveis p {
+    font-size: 0.85rem;
+    color: #555;
+  }
 
 .menu-de-baixo {
     background-color: var(--azul-cinza);
