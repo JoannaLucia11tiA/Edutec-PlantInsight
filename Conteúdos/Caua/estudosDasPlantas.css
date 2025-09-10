@@ -360,36 +360,6 @@
 
     a {
         display: flex;
-        justify-content: flex-end;
-        background-color: var(--ciano-escuro);
-        margin: 1rem;
-        margin-right: 2rem;
-        padding: 0.8rem;
-        padding-inline: 1.3rem;
-        border-radius: 0.7rem;
-
-        margin-top: 7rem;
-
-        width: 7rem;
-        margin-left: auto;
-
-        text-align: center;
-        text-decoration: none;
-        color: var(--branco);
-        font-size: 1.2rem;
-        font-weight: 550;
-
-    }
-}
-
-.subir-topo {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 1000;
-
-    a {
-        display: flex;
         align-items: center;
         justify-content: flex-end;
         background-color: var(--ciano-escuro);

@@ -1,21 +1,22 @@
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
-:root{
+:root {
     --branco: #FFF;
-    --azul-cadete:#4FADAF;
+    --azul-claro-fundo: #E0F2F1;
+    --azul-cadete: #4FADAF;
     --azul-opcao: #37598A;
     --azul-cinza: #486794;
+    --verde: #AEC04D;
+    font-size: 16px; /* Base para o cálculo de REM (1rem = 16px) */
 }
+
+/* Estilos gerais */
 body{
-    background-color: var(--branco);
+    background-color: var(--cor-fundo);
     font-family: "Raleway", sans-serif;
     font-optical-sizing: auto;
     font-weight:weight;
     font-style: normal;
 }
+
 img{
     width: 5.8rem;
 }
@@ -49,167 +50,221 @@ header{
 .pagina-aberta{
     color: var(--azul-opcao);
 }
-
-
-/* ================= SOBRE NÓS ================= */
-
-.conteudo-todo {
-    max-width: 68rem; 
+/* ================= CONTEÚDO PRINCIPAL ================= */
+.conteudo-principal {
+    max-width: 75rem;
     margin: 0 auto;
     padding: 2rem;
-    background: var(--branco);
-    border-radius: 1rem;
+}
+
+/* SEÇÃO QUE CONTÉM HERO E SOBRE O SITE */
+.secoes-superiores {
+    background: url('./imagens/formaciano.png') no-repeat center bottom,
+                linear-gradient(to top, var(--branco) 0%, var(--azul-claro-fundo) 50%);
+    background-size: 100% auto;
+    background-position: center bottom, center top;
+    padding-bottom: 2rem;
+}
+
+/* Seção Hero - Título e Galeria de Imagens */
+.secao-hero {
     position: relative;
-    margin-bottom: 3rem;
-  }
-  
-  /* Título principal */
-  .titulo {
+    padding: 3rem 0;
     text-align: center;
-    margin: 3rem 0 2rem;
+}
+
+.titulo {
+    text-align: center;
+    margin-bottom: 2rem;
     position: relative;
-  }
-  
-  .titulo h1 {
+    padding-top: 1rem;
+}
+
+.titulo h1 {
+    font-size: 2.8rem;
+    color: var(--azul-opcao);
+    font-weight: 700;
+    position: relative;
+    z-index: 1;
+}
+
+/* Ícones decorativos */
+.titulo img {
+    position: absolute;
+    width: 2rem;
+    height: auto;
+    z-index: 0;
+}
+
+.titulo .estrela1 { top: 0.5rem; left: 35%; }
+.titulo .circulo1 { top: 0.8rem; right: 35%; }
+.titulo .estrela2 { bottom: 0.5rem; left: 37%; }
+.titulo .circulo2 { bottom: 0.8rem; right: 37%; }
+
+.galeria-imagens {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.galeria-imagens img {
+    width: 14rem;
+    height: 10rem;
+    object-fit: cover;
+    border-radius: 0.8rem;
+    box-shadow: 0rem 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+}
+
+/* Seção Sobre o Site */
+.secao-sobre-site {
+    padding: 2rem;
+    padding-bottom: 0;
+}
+
+.sobre-site {
+    text-align: left;
+    background-color: var(--azul-claro-fundo);
+    padding: 2rem;
+    border-radius: 0.8rem;
+    margin-top: -2rem; 
+}
+
+.sobre-site h4 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--verde);
+    margin-bottom: 1rem;
+}
+
+.sobre-site p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #333;
+    font-weight: 500;
+}
+
+/* Seção Objetivos do Projeto */
+.secao-objetivos {
+    margin-bottom: 3rem;
+}
+
+.objetivos-projeto {
+    background-color: var(--azul-opcao);
+    padding: 2.5rem;
+    color: var(--branco);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.objetivos-projeto .texto-objetivos {
+    flex: 1;
+    padding-right: 2rem;
+}
+
+.objetivos-projeto h4 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: var(--verde);
+}
+
+.objetivos-projeto ul {
+    list-style: none;
+    padding: 0;
+}
+
+.objetivos-projeto ul li {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 0.8rem;
+    position: relative;
+    padding-left: 1.5rem;
+    font-weight: 300;
+}
+
+.objetivos-projeto ul li::before {
+    content: "•";
+    color: var(--branco);
+    font-size: 1.2rem;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.objetivos-projeto .imagem-flor img {
+    width: 12rem;
+    height: auto;
+    display: block;
+}
+
+/* Seção Equipe - Responsáveis pelo Projeto */
+.secao-equipe {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.secao-equipe h1 {
     font-size: 2.4rem;
     color: var(--azul-opcao);
     font-weight: 700;
-  }
-  
-  .titulo img {
-    position: absolute;
-    width: 1.6rem;
-    height: auto;
-  }
-  
-  /* Ícones decorativos */
-  .titulo img:nth-child(2) { top: -0.8rem; left: 42%; }
-  .titulo img:nth-child(3) { top: 0; right: 42%; }
-  .titulo img:nth-child(4) { bottom: -0.8rem; left: 40%; }
-  .titulo img:nth-child(5) { bottom: -1rem; right: 40%; }
-  
-  /* Imagens horizontais */
-  .imagem-1 img,
-  .imagem-2 img,
-  .imagem-3 img,
-  .imagem-4 img {
-    width: 12.5rem;   /* ~200px */
-    height: 9rem;     /* ~140px */
-    object-fit: cover;
-    border-radius: 0.8rem;
-    margin: 0.5rem;
-  }
-  
-  .imagem-1,
-  .imagem-2,
-  .imagem-3,
-  .imagem-4 {
-    display: inline-block;
-  }
+    margin-bottom: 2.5rem;
+}
 
-  
-  /* Textos */
-  .conteudo-todo h4 {
-    text-align: left;
-    margin: 2rem 0 0.6rem;
-    color: var(--azul-cinza);
-    font-size: 1.2rem;
-    font-weight: 700;
-  }
-  
-  .conteudo-todo p {
-    text-align: left;
-    margin-bottom: 0.8rem;
-    color: #333;
-    font-size: 1rem;
-  }
+.cards-equipe {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
 
-  .ondas {
-    position: absolute;
-    top: 5rem; /* ajusta a altura do início das ondas */
-    left: 0;
-    width: 100%;
-    z-index: -1; /* joga para trás das imagens */
-    width: 100%;
-    height: auto;
-    display: block;
- }
+/* Remove o sublinhado em todos os estados do link */
+a {
+    text-decoration: none;
+}
 
-  
-  /* Retângulo azul (Objetivos) */
-  .retangulo {
-    background-color: var(--azul-opcao);
-    border-radius: 0.6rem;
-    padding: 1.6rem;
-    margin: 2rem 0;
-    text-align: left;
-    color: var(--branco);
-  }
-  
-  .retangulo h4 {
-    color: var(--branco);
-    margin-bottom: 1rem;
-    font-size: 1.2rem;
-  }
-  
-  .retangulo p {
-    margin-bottom: 0.5rem;
-    color: #f1f1f1;
-    font-size: 1rem;
-  }
-  
-  /* Flor decorativa */
-  .flor {
-    position: absolute;
-    right: 6%;
-    bottom: 8rem;
-    width: 7rem;
-  }
-  
-  .flor img {
-    width: 100%;
-  }
-  
-  /* Seção responsáveis */
-  .responsaveis {
-    margin-top: 3rem;
+/* Garante que o sublinhado não apareça quando o mouse passa por cima */
+a:hover {
+    text-decoration: none;
+}
+
+/* Garante que o sublinhado não apareça no momento do clique */
+a:active {
+    text-decoration: none;
+}
+
+.membro-equipe {
+    background-color: var(--azul-claro-fundo);
+    border-radius: 1rem;
+    padding: 1.5rem;
     text-align: center;
-  }
-  
-  .responsaveis h1 {
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: var(--azul-cadete);
-    margin-bottom: 2rem;
-  }
-  
-  /* Cards dos responsáveis */
-  .responsaveis > div {
-    display: inline-block;
-    margin: 0 1rem;
-    text-align: center;
-  }
-  
-  .responsaveis img {
-    width: 7.5rem;
-    height: 7.5rem;
+    width: 12rem;
+    box-shadow: 0rem 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+}
+
+.membro-equipe img {
+    width: 8rem;
+    height: 8rem;
     border-radius: 50%;
     object-fit: cover;
-    border: 0.3rem solid #d8f5f4;
-    margin-bottom: 0.6rem;
-  }
-  
-  .responsaveis h4 {
-    font-size: 1rem;
-    margin-bottom: 0.2rem;
-    color: var(--azul-opcao);
-  }
-  
-  .responsaveis p {
-    font-size: 0.85rem;
-    color: #555;
-  }
+    margin-bottom: 1rem;
+    border: 0.1875rem solid var(--azul-cadete);
+}
 
+.membro-equipe h4 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--azul-opcao);
+    margin-bottom: 0.5rem;
+}
+
+.membro-equipe p {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* Rodapé */
 .menu-de-baixo {
     background-color: var(--azul-cinza);
     color: var(--branco);
