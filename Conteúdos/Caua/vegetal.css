@@ -515,33 +515,30 @@ img {
 
 .subir-topo {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
+    bottom: 2rem;
+    right: 3rem;
     z-index: 1000;
+}
 
-    a {
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-        background-color: var(--ciano-escuro);
-        font-family: "Merriweather", sans-serif;
-        font-weight: normal;
-        margin: 1rem;
-        margin-right: 2rem;
-        border-radius: 0.5rem;
-        padding: 0.5rem;
+.subir-topo a {
+    display: inline-flex;  
+    align-items: center;
+    justify-content: center;
+    background-color: var(--ciano-escuro);
+    padding: 0.1rem 0.4rem; 
+    border-radius: 0.5rem;
+    text-decoration: none;
+    color: var(--branco);
+    font-size: 1rem;
+    font-weight: 600;
+    gap: 0.2rem;
+    font-family: "Merriweather", sans-serif;
+}
 
-        text-align: center;
-        text-decoration: none;
-        color: var(--branco);
-        font-size: 1.1rem;
-        font-weight: 1000;
-    }
 
-    img {
-        width: 0.5rem;
-        height: 1rem;
-    }
+.subir-topo img {
+    width: 1.2rem;
+    height: 1.2rem;
 }
 
 

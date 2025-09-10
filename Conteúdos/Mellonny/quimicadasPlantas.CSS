@@ -326,6 +326,7 @@
 
         p {
             font-family: "Raleway", sans-serif;
+            font-weight: 600;  
             font-size: 1.47rem;
             line-height: 1.6;
             text-align: justify;
@@ -431,8 +432,8 @@
 
 .subir-topo {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
+    bottom: 2rem;
+    right: 23rem;
     z-index: 1000;
 
     a {
