@@ -3,6 +3,12 @@
 localStorage.setItem("faseAnterior", 1); 
 const textoPergunta = document.getElementById("texto-pergunta")
 const opcoesRespostas = Array.from(document.getElementsByClassName('opcao-texto'))
+
+const faseAtual = localStorage.getItem('faseAtual');
+const faseNumero = document.getElementById('fase-numero');
+faseNumero.textContent = `${faseAtual}`;
+
+
 console.log(opcoesRespostas)
 
 let fase = parseInt(localStorage.getItem("faseAtual")) || 1
@@ -284,7 +290,7 @@ function fecharPopup2() {
 
   
 
-  // 1. Ouve os cliques nos links de SAÍDA
+  // 1. Ouve os cliques nos links de SAÍDA 
   document.querySelectorAll(".sairpagina").forEach(link => {
     link.addEventListener("click", e => {
       e.preventDefault(); // Impede o link de funcionar imediatamente

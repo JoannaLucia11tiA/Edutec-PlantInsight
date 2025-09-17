@@ -96,10 +96,10 @@ header{
     z-index: 0;
 }
 
-.titulo .estrela1 { top: 0.5rem; left: 35%; }
+.titulo .estrela1 { top: 0.8rem; left: 35%; }
 .titulo .circulo1 { top: 0.8rem; right: 35%; }
-.titulo .estrela2 { bottom: 0.5rem; left: 37%; }
-.titulo .circulo2 { bottom: 0.8rem; right: 37%; }
+.titulo .estrela2 { bottom: 0.5rem; right: 37%; }
+.titulo .circulo2 { bottom: 0.5rem; left: 37%; }
 
 .galeria-imagens {
     display: flex;

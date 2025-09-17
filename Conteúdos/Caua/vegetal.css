@@ -85,16 +85,13 @@ img.Logo {
     border-radius: 1.5rem;
 
     h3 {
-        /*---gambiarra pra deixar "p" na esquerda---*/
-        font-family: "Raleway", sans-serif;
         font-size: 2.2rem;
-        text-align: center;
         margin: 0;
-        font-weight: bold;
-        letter-spacing: 2px;
+        font-family: "Merriweather", sans-serif;
         font-weight: normal;
-        text-align: left;
-        margin-left: 9rem;
+        text-align: center;
+        letter-spacing: 2px;
+        margin-left: -26rem;
     }
 
     h2 {
@@ -106,35 +103,44 @@ img.Logo {
 
 }
 
-
 .icones {
     display: flex;
     justify-content: center;
-    gap: 3rem;
+    align-items: center;
+    gap: 5rem;
+    margin-bottom: 6rem;
+}
+
+.icones > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
-    font-family: "Bree Serif", sans-serif;
-    margin-bottom: 4rem;
-
-    .icones div {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 0.5rem;
-        font-size: 0.9rem;
-        color: var(--preto);
-    }
+    max-width: 10rem;
+    min-height: 8rem;
 }
 
-.icones img {
+.icones > div p {
+    min-height: 3.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 0;
+}
+
+.icones > div img {
     width: 50px;
-    height: auto;
+    height: 50px;
+    object-fit: contain;
+    margin-bottom: 0.625rem;
+    margin-left: 0rem;
 }
 
-.icone2 img {
-    width: 34px;
-    height: auto;
-    max-height: 50px;
-    margin-top: 7.5px;
+.icones > div h4 {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #222;
 }
 
 .fotossintese {
@@ -162,7 +168,7 @@ img.Logo {
         text-align: justify;
         width: 45%;
         display: inline-block;
-        float: left;
+        line-height: 1.6;
     }
 
     .p2 {
@@ -433,14 +439,10 @@ img.Logo {
 }
 
 .verde {
-
     .comunicacao {
-
         background-color: var(--verdinho);
-        padding: 2rem 3rem;
-        margin: 2rem auto 3rem auto;
-        max-width: 1000px;
-        width: 1000px;
+        padding: 2rem 2rem;
+        margin: 2.5rem auto 3rem auto;
         line-height: 1.6;
         overflow: hidden;
         display: flex;
@@ -461,11 +463,10 @@ img.Logo {
             text-align: justify;
             width: 45%;
             display: inline-block;
-            float: left;
         }
 
         img {
-            width: 515px;
+            width: 30rem;
             object-fit: cover;
             margin-bottom: 15px;
             margin-left: 1.8rem;
@@ -521,11 +522,11 @@ img {
 }
 
 .subir-topo a {
-    display: inline-flex;  
+    display: inline-flex;
     align-items: center;
     justify-content: center;
     background-color: var(--ciano-escuro);
-    padding: 0.1rem 0.4rem; 
+    padding: 0.1rem 0.4rem;
     border-radius: 0.5rem;
     text-decoration: none;
     color: var(--branco);

@@ -70,6 +70,7 @@ main {
     align-items: center;     /* centraliza na vertical */
   }
   
+  
   /* só o estilo do quadrinho */
   .quadrinho {
     width: 900px;
@@ -81,23 +82,29 @@ main {
 
     display: flex;
     flex-direction: column;
+     
     
     justify-content: flex-start;
 
     h1{
+      
         font-weight: 500;
         font-size: 2.5rem;
-        margin-left: 1rem;
-        margin-bottom: 4rem;
+       
+        margin-left: 3rem;
     }
     h2{
         font-size: 1.8rem;
         height: 4rem;
+        margin-bottom: 3rem;
+        margin-top: 1rem;
+       
+        text-align: center;
     }
   }
   .pergunta{
     display: flex;
-    gap: 5rem;
+    gap: 2rem;
     justify-content: center;
     justify-content: space-between;
     color: var(--branco);

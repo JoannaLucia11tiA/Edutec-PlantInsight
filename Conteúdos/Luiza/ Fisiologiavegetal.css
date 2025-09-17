@@ -75,12 +75,12 @@ img {
 
 .titulo h3 {
     font-size: 2.2rem;
-    text-align: left;
     margin: 0;
     font-family: "Merriweather", sans-serif;
     font-weight: normal;
+    text-align: center;
     letter-spacing: 2px;
-    margin-left: 7rem;
+    margin-left: -26rem;
 }
 
 .titulo h2 {
@@ -94,7 +94,7 @@ img {
 .icones {
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     gap: 5rem;
     margin-bottom: 6rem;
 }
@@ -108,8 +108,8 @@ img {
 }
 
 .icones > div img {
-    width: 5rem;
-    height: 2rem;
+    width: 50px;
+    height: 50px;
     object-fit: contain;
     margin-bottom: 0.625rem;
 }

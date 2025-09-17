@@ -102,7 +102,7 @@ window.addEventListener('DOMContentLoaded', () => {
               }
           }
       }
-      localStorage.removeItem('acertosFase');
+      localStorage.removeItem('acertosFase'); 
   }
 });
 
@@ -118,7 +118,7 @@ const avancarFase = () => {
   if (faseAtual === 20) {
       // Vitória! Redireciona para o popup para a verificação de vitória acontecer.
       window.location.href = "popup.html";
-      return;
+      return; 
   }
   
   faseAtual++;

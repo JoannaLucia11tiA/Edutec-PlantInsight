@@ -19,7 +19,9 @@
     --ciano-escuro: #55ADAE;
     --verde-escuro: #408283;
 }
-
+html {
+    scroll-behavior: smooth;
+}
 .conteudo {
     background-color: var(--branco-ciano);
     padding-top: 1rem;
@@ -325,8 +327,7 @@
         }
 
         p {
-            font-family: "Raleway", sans-serif;
-            font-weight: 600;  
+            font-family: "Raleway", sans-serif; 
             font-size: 1.47rem;
             line-height: 1.6;
             text-align: justify;

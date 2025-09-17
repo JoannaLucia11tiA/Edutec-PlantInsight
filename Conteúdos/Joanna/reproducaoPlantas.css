@@ -23,7 +23,9 @@
     --azul-cinza: #486794;
     --verde-escuro: #408283;
 }
-
+html {
+    scroll-behavior: smooth;
+}
 body{
     background-color: var(--cor-fundo);
     font-family: "Raleway", sans-serif;
