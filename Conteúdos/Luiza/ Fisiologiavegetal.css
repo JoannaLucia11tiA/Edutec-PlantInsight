@@ -19,7 +19,7 @@ body {
     background-color: var(--branco);
     font-family: "Raleway", sans-serif;
     font-optical-sizing: auto;
-    font-weight:weight;
+    font-weight: weight;
     font-style: normal;
 }
 
@@ -62,7 +62,6 @@ img {
 }
 
 /*------------titulo--------------*/
-
 .titulo {
     color: var(--dark);
     font-size: 2rem;
@@ -97,9 +96,13 @@ img {
     align-items: center;
     gap: 5rem;
     margin-bottom: 6rem;
+
+    .flormenor {
+        width: 2rem;
+    }
 }
 
-.icones > div {
+.icones>div {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -107,20 +110,18 @@ img {
     max-width: 10rem;
 }
 
-.icones > div img {
-    width: 50px;
-    height: 50px;
+.icones>div img {
+    width: 3rem;
     object-fit: contain;
     margin-bottom: 0.625rem;
 }
 
-.icones > div h4 {
+.icones>div h4 {
     font-size: 0.9rem;
     font-weight: bold;
     color: #222;
 }
 
- 
 /* ====== CONTEÚDO DE FISIOLOGIA VEGETAL ====== */
 .processos-vitais {
     background-color: var(--dark);
@@ -164,52 +165,223 @@ img {
 
 /* --- SEÇÃO PRINCIPAL (conteudo-todo) --- */
 .conteudo-todo {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px;
     display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.linha {
+    display: flex;
+    align-items: flex-start;
     gap: 2rem;
-    padding: 2rem 3rem;
-    margin: 2rem auto 3rem auto;
-    max-width: 1000px;
 }
 
-.conteudo-todo h2 {
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin: 1.5rem 0 0.8rem;
+/* colunas */
+.col-esq,
+.col-dir {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* títulos */
+.col-esq h2 {
+    font-family: "Bree Serif", serif;
+    font-weight: normal;
+    font-size: 2.3rem;
     color: var(--azul-opcao);
-    font-family: "Merriweather", sans-serif;
+    margin-bottom: 1rem;
 }
 
-.conteudo-todo p {
-    text-align: justify;
-    margin-bottom: 1rem;
-    font-size: 1.07rem;
-    line-height: 1.6;
+/* parágrafos - diminuídos */
+.col-esq p,
+.col-dir p {
     font-family: "Raleway", sans-serif;
     font-weight: normal;
+    font-size: 1.25rem;
+    line-height: 1.5;
+    text-align: justify;
+    margin: 0;
+    color: #222;
 }
 
-/* Layout em duas colunas */
-.lado-esquerdo,
-.lado-direito {
-    flex: 1;
-}
-
-/* Imagens dentro de .conteudo-todo */
-.conteudo-todo img {
+/* imagens */
+.col-esq img,
+.col-dir img {
+    max-width: 42rem;
     width: 100%;
     height: auto;
-    border-radius: 0.5rem;
+    border-radius: 8px;
+    display: block;
     object-fit: cover;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
 }
 
-/* AJUSTES PARA ALINHAMENTO */
-/* Esta regra garante que a primeira imagem no lado direito se alinhe com o texto do lado esquerdo */
-.lado-direito .p1 + img {
-    margin-top: 2.2rem;
+.conteu1 {
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+
+    /* colunas */
+    .col-esq,
+    .col-dir {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    /* títulos */
+    .col-esq h2 {
+        font-family: "Bree Serif", serif;
+        font-weight: normal;
+        font-size: 2.3rem;
+        color: var(--azul-opcao);
+        margin-bottom: 1rem;
+    }
+
+    .col-dir img {
+            margin-top: 8.5rem;
+        }
+
+    /* parágrafos - diminuídos */
+    .col-esq p,
+    .col-dir p {
+        font-family: "Raleway", sans-serif;
+        font-weight: normal;
+        font-size: 1.25rem;
+        line-height: 1.5;
+        text-align: justify;
+        margin: 0;
+        color: #222;
+    }
 }
 
+.conteu2 {
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+
+    /* colunas */
+    .col-esq,
+    .col-dir {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    /* títulos */
+    .col-esq h2 {
+        font-family: "Bree Serif", serif;
+        font-weight: normal;
+        font-size: 2.3rem;
+        color: var(--azul-opcao);
+        margin-bottom: 1rem;
+    }
+
+    .col-dir img {
+            margin-top: 5.3rem;
+        }
+
+    /* parágrafos - diminuídos */
+    .col-esq p,
+    .col-dir p {
+        font-family: "Raleway", sans-serif;
+        font-weight: normal;
+        font-size: 1.25rem;
+        line-height: 1.5;
+        text-align: justify;
+        margin: 0;
+        color: #222;
+    }
+}
+
+.conteu3 {
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+
+    /* colunas */
+    .col-esq,
+    .col-dir {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    /* títulos */
+    .col-dir h2 {
+        font-family: "Bree Serif", serif;
+        font-weight: normal;
+        font-size: 2.3rem;
+        color: var(--azul-opcao);
+        margin-bottom: 1rem;
+    }
+
+    .col-esq img {
+            margin-top: 3rem;
+        }
+
+    /* parágrafos - diminuídos */
+    .col-esq p,
+    .col-dir p {
+        font-family: "Raleway", sans-serif;
+        font-weight: normal;
+        font-size: 1.25rem;
+        line-height: 1.5;
+        text-align: justify;
+        margin: 0;
+        color: #222;
+    }
+}
+
+.final-conteu {
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+
+    /* colunas */
+    .col-esq,
+    .col-dir {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    /* títulos */
+    .col-esq h2 {
+        font-family: "Bree Serif", serif;
+        font-weight: normal;
+        font-size: 2.3rem;
+        color: var(--azul-opcao);
+        margin-bottom: 1rem;
+    }
+
+    .col-dir{
+        margin-top: 8.3rem;
+        img {
+            margin-top: 3.6rem;
+        }
+    }
+
+    /* parágrafos - diminuídos */
+    .col-esq p,
+    .col-dir p {
+        font-family: "Raleway", sans-serif;
+        font-weight: normal;
+        font-size: 1.25rem;
+        line-height: 1.5;
+        text-align: justify;
+        margin: 0;
+        color: #222;
+    }
+}
 
 /* --- SEÇÃO SAIBA MAIS --- */
 .saiba-mais {
@@ -228,10 +400,11 @@ img {
         margin-top: 1rem;
     }
 
-    a{
+    a {
         text-decoration: none;
         color: var(--preto);
     }
+
     p {
         font-family: "Raleway", sans-serif;
         font-weight: normal;
@@ -293,11 +466,9 @@ img {
         object-fit: contain;
         cursor: pointer;
     }
-
 }
 
 /* --- SUBIR TOPO --- */
-
 .subir-topo {
     position: fixed;
     bottom: 2rem;
@@ -310,13 +481,18 @@ img {
     align-items: center;
     justify-content: center;
     background-color: var(--ciano-escuro);
-    padding: 0.5rem 0.3rem;   /* menos espaço nas laterais */
+    padding: 0.5rem 0.3rem;
+    /* menos espaço nas laterais */
+    padding-right: 0.8rem;
     border-radius: 0.5rem;
     text-decoration: none;
     color: var(--branco);
-    font-size: 1rem;          /* texto um pouco menor */
-    font-weight: 600;         /* mantém negrito, mas não exagerado */
-    gap: 0.4rem;              /* espaço entre seta e texto */
+    font-size: 1rem;
+    /* texto um pouco menor */
+    font-weight: 600;
+    /* mantém negrito, mas não exagerado */
+    gap: 0.4rem;
+    /* espaço entre seta e texto */
     font-family: "Merriweather", sans-serif;
 }
 
@@ -324,7 +500,6 @@ img {
     width: 2rem;
     height: 2rem;
 }
-
 
 /* --- MENU DE BAIXO (RODAPÉ) --- */
 .menu-de-baixo {

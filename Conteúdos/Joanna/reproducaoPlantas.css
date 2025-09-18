@@ -94,7 +94,7 @@ ul {
     display: flex;
     justify-content: center;
     font-size: 10px;
-    gap: 3rem;
+    gap: 3rem; 
     text-align: center;
     margin-bottom: 6.7rem;
 
@@ -125,7 +125,7 @@ h1{
     font-size: 32px;
     margin-bottom: 2.5rem;
 }
-.p1, .p2, .p3, .p4, .p5, .p6, .p7, .p8, .p9, .p10 {
+.p0, .p1, .p2, .p3, .p4, .p5, .p6, .p7, .p8, .p9, .p10 {
     display: grid;
     grid-template-columns: 1fr 1fr; 
     gap: 3rem;
@@ -162,10 +162,18 @@ h1{
 .sexuada{
    background-color: var(--green-nromal);
    color: var(--green-light);
-
+   gap: 2rem;           
+   padding: 20px;         
+   margin: 2rem auto;
+   margin-bottom: 0;
+   max-width: 1050px;
    & > div {
     max-width: 1100px;
     margin: auto;
+    gap: 2rem;           
+    padding: 20px;          
+    margin: 2rem auto 3rem auto;
+    max-width: 1100px;
    }
    
 
@@ -182,7 +190,7 @@ h1{
 .p4 img{
     margin-top: 2rem;
 }
-.p6{
+.p6{ 
     padding-bottom: 3rem;
     margin-bottom: 0;
 }
@@ -198,7 +206,10 @@ h1{
     background-color: var(--green-darkeeeeer);
     color: var(--green-light);
     padding-block: 5rem;
-
+    gap: 2rem;           
+    padding: 20px;         
+    margin: 2rem auto 3rem auto;
+    max-width: 1050px;
     h2{
         font-size: 45px;
         padding-bottom: 2.9rem;
@@ -211,6 +222,10 @@ h1{
     & > div {
         max-width: 1100px;
         margin: auto;
+        gap: 2rem;           
+   padding: 20px;         
+   margin: 2rem auto 3rem auto;
+   max-width: 1000px;
        }
     
 }
@@ -319,37 +334,35 @@ h1{
 
 }
     
-.subir-topo{
+.subir-topo {
     position: fixed;
-    bottom: 20px;      
-    right: 20px;      
-    z-index: 1000; 
-    
-    a{
-    display: flex;
-    justify-content: flex-end;
-    background-color: var(--normal-green);
-    margin: 1rem;
-    margin-right: 2rem;
-    padding: 0.8rem;
-    padding-inline: 1.3rem;
-    border-radius: 0.7rem;
-    
-    margin-top: 7rem;
-
-    width: 7rem;      
-    margin-left: auto; 
-    
-    
-    
-        text-align: center;
-        text-decoration: none;
-        color: #fff;
-        font-size: 1.2rem;
-        font-weight: 550;
-        
-    }
+    bottom: 2rem;
+    right: 3rem;
+    z-index: 1000;
 }
+
+.subir-topo a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--normal-green);
+    padding: 0.5rem 0.3rem;   /* menos espaço nas laterais */
+    padding-right: 0.8rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    color: var(--branco);
+    font-size: 1rem;          /* texto um pouco menor */
+    font-weight: 600;         /* mantém negrito, mas não exagerado */
+    gap: 0.4rem;              /* espaço entre seta e texto */
+    font-family: "Merriweather", sans-serif;
+}
+
+.subir-topo img {
+    width: 2rem;
+    height: 2rem;
+}
+
+
 .conteudo-pagina{
     h1,h2,h3{
         

@@ -333,7 +333,7 @@ img.Logo {
             margin: 10px 0;
         }
 
-        p {
+        p { 
             font-family: "Raleway", sans-serif;
             font-size: 1.45rem;
             line-height: 1.6;
@@ -513,7 +513,6 @@ img {
     }
 
 }
-
 .subir-topo {
     position: fixed;
     bottom: 2rem;
@@ -522,25 +521,27 @@ img {
 }
 
 .subir-topo a {
-    display: inline-flex;
+    display: flex;
     align-items: center;
     justify-content: center;
     background-color: var(--ciano-escuro);
-    padding: 0.1rem 0.4rem;
+    padding: 0.5rem 0.3rem;   /* menos espaço nas laterais */
+    padding-right: 0.8rem;
     border-radius: 0.5rem;
     text-decoration: none;
     color: var(--branco);
-    font-size: 1rem;
-    font-weight: 600;
-    gap: 0.2rem;
+    font-size: 1rem;          /* texto um pouco menor */
+    font-weight: 600;         /* mantém negrito, mas não exagerado */
+    gap: 0.4rem;              /* espaço entre seta e texto */
     font-family: "Merriweather", sans-serif;
 }
 
-
 .subir-topo img {
-    width: 1.2rem;
-    height: 1.2rem;
+    width: 2rem;
+    height: 2rem;
+    margin: 0;
 }
+
 
 
 .menu-de-baixo {
