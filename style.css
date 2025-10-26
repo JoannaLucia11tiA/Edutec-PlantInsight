@@ -140,7 +140,7 @@ header {
     background-image: url('./imagens.home/onda.png');
     background-size: cover;
     background-position: center;
-    height: 94.8vh;
+    height: 99.8vh;
     display: flex;
     align-items: center;
     justify-content: left;
@@ -182,24 +182,28 @@ header {
     }
 
     .objetivos-container {
+        
         display: flex;
         justify-content: center;
         gap: 3rem;
         flex-wrap: wrap;
-        margin-top: -4rem;
+        margin-top: -6rem;
         margin-left: -3.8rem;
-        width: 100%;
+        width: 100%; 
 
         .objetivos {
             background: var(--branco);
             color: var(--azul-opcao);
-            border-radius: 3.125rem;
+            border-radius: 1rem;
             padding: 2rem;
             width: 15.625rem;
             text-align: center;
             box-shadow: 0 0.375rem 0.75rem rgba(0, 0, 0, 0.15);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             justify-content: center;
+        }
+
+        
         }
     }
 
@@ -278,6 +282,7 @@ header {
 }
 
 h4 {
+    
     font-family: 'Bree Serif', sans-serif;
     font-weight: normal;
     text-align: center;   

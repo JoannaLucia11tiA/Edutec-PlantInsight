@@ -68,7 +68,7 @@
   text-align: center;
 
   background-color: var(--azul-escuro);
-  padding: 2.4rem 8rem;
+  padding: 2.4rem 8rem; 
   margin: 0.4rem 8rem 6.9rem 8rem;
   border-radius: 1.5rem;
 
@@ -154,7 +154,7 @@ body {
 
   background-color: var(--azul-escuro);
   padding: 2.4rem 8rem;
-  margin: 0.4rem 6.9rem;
+  margin: 0.4rem 8rem;
   margin-top: 1.5rem;
   margin-bottom: 6rem;
   border-radius: 1.5rem;
@@ -168,6 +168,7 @@ body {
 
     font-weight: normal;
     margin-left: -35 rem;
+    max-width: 50%; 
   }
 
   h2 {
