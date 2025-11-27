@@ -370,7 +370,26 @@ opcoesRespostas.forEach(opcao => {
     let faseAtual = parseInt(localStorage.getItem("faseAtual")) || 1;
 
     // Marca a fase anterior como completa
-    localStorage.setItem(`Fase ${faseAtual }`, 'completa');
+    // Marca a fase como completa
+// Verifica se a fase já estava completa
+let faseJaCompleta = localStorage.getItem(`Fase ${faseAtual}`) === "completa";
+
+if (!faseJaCompleta) {
+    // Marca a fase como completa
+    localStorage.setItem(`Fase ${faseAtual}`, "completa");
+
+    // Pega os pontos atuais ou 0
+    let pontosAtuais = Number(localStorage.getItem("Pontosplayer")) || 0;
+
+    // Soma +10
+    let novosPontos = pontosAtuais + 10;
+
+    // Salva
+    localStorage.setItem("Pontosplayer", novosPontos);
+}
+  
+
+
   
   }
   opcaoClicada.classList.add(adicionarClass)

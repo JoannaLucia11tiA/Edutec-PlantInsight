@@ -30,6 +30,11 @@ header{
         text-decoration: none;
         color: var(--azul-cadete);
     }
+
+    a:hover{
+        color: #37598A;
+    }
+
     .voltar-home{
         display: flex;
         align-items: center;

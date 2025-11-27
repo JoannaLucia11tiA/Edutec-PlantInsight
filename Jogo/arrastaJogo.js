@@ -17,7 +17,7 @@ const desafios = [
     { id: 22, imagem: "cauledrop.png", resultado: "Transporte de substâncias", respostaImg: "ceivadrop.png" },
     { id: 26, imagem: "flordrop.png", resultado: "Formação do fruto", respostaImg: "ovulofecundadodrop.png" },
     { id: 29, imagem: "raizdrop.png", resultado: "Geotropismo", respostaImg: "gravidade.png" },
-];
+];   
 //salvar
 let limparProgresso = false;
 
@@ -97,6 +97,21 @@ function checarRespostas() {
     acertosFase = [...dropzones].filter(dz => dz.dataset.acertou === "true").length;
     localStorage.setItem("acertosFase", acertosFase);
     
+// --- MARCAR FASE COMPLETA E DAR PONTOS ---
+let faseAtual = Number(localStorage.getItem("faseAtual"));
+
+if (acertosFase === 3) {
+    let faseJaCompleta = localStorage.getItem(`Fase ${faseAtual}`) === "completa";
+
+    if (!faseJaCompleta) {
+        localStorage.setItem(`Fase ${faseAtual}`, "completa");
+
+        let pontosAtuais = Number(localStorage.getItem("Pontosplayer")) || 0;
+        localStorage.setItem("Pontosplayer", pontosAtuais + 10);
+    }
+}
+
+
     if (acertosFase < 3) {
         removeVida();
     }

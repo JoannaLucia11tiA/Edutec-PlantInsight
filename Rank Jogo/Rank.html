@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Rank.css">
+    <title>Ranking Jogo</title>
+    <script src="./rank.js" defer></script>
+    
+</head>
+
+<body>
+
+<header>
+    <div class="voltar-home">
+        <a href="../index.html">
+            <img src="/Carrossel/imagens-carrossel/Logo-PlantInsight.png" alt="Logo do PlantInsight">
+        </a>
+        <a href="../index.html">
+            <h2 class="pagina-aberta">PlantInsight</h2>
+        </a>
+    </div>
+
+    <div class="opcoes-paginas">
+        <a href="../Carrossel/carrossel.html"><h2>Conteúdos</h2></a>
+        <a href="../Jogo/jogojogar.html" class="pagina-aberta"><h2>Jogo</h2></a>
+        <a href="../Sobre Nós/sobrenos.html"><h2>Sobre nós</h2></a>
+        <a href="../Login/login.html"><h2>Login</h2></a>
+    </div>
+</header>
+
+<div id="popupCadastrar" style="display:none;">
+    <div class="popup-cadastrar" id="popupConteudo">
+        <h3>Deseja cadastrar sua pontuação?</h3>
+        <button class="espaco" id="popup-sim" onclick="mostrarCadastro()">Sim</button>
+        <button id="fechar" onclick="fecharPopupCadastrar()">Não</button>
+    </div>
+</div>
+
+<div class="page">
+
+    
+    <div class="btn-container">
+        <img class="plantinha" src="../imagens.home/Plantinha feliz ranking.png" alt="Plantinha segurando troféu">
+        <a href="../Jogo/jogoprincipal.html">
+            <button class="btn-voltar">Voltar</button>
+        </a>
+    </div>
+    <div>
+        <h1 class="titulo">Leaderbord</h1>
+
+        <div class="board-wrapper">
+            <div class="board-header">
+                <div>Rank</div>
+                <div>Pontos</div>
+            </div>
+
+            <div class="board-body">
+
+                <div class="item">
+                    <div class="left">
+                        <div class="medalgold"><img src="./imagens/Medalha 1.png" alt="Medalha de primeiro lugar"></div>
+                        <div class="name">Joanna Lúcia</div>
+                    </div>
+                    <div class="pointos">500</div>
+                </div>
+
+                <div class="item">
+                    <div class="left">
+                        <div class="medalsilver"><img src="./imagens/Medalha 2.png" alt="Medalha de segundo lugar"></div>
+                        <div class="name">Mellonny</div>
+                    </div>
+                    <div class="pointos">500</div>
+                </div>
+
+                <div class="item">
+                    <div class="left">
+                        <div class="medalbronze"><img src="./imagens/medalha 3.png" alt="Medalha de terceiro lugar"></div>
+                        <div class="name">Cauã</div>
+                    </div>
+                    <div class="pointos">500</div>
+                </div>
+
+                <div class="item">
+                    <div class="left">
+                        <div class="medal">4</div>
+                        <div class="name">Luiza</div>
+                    </div>
+                    <div class="pointos">500</div>
+                </div>
+
+                <div class="item">
+                    <div class="left">
+                        <div class="medal">5</div>
+                        <div class="name">Gabriel</div>
+                    </div>
+                    <div class="pointos">500</div>
+                </div>
+
+                <div class="item">
+                    <div class="left">
+                        <div class="medal">6</div>
+                        <div class="name">Ana</div>
+                    </div>
+                    <div class="pointos">480</div>
+                </div>
+
+                <div class="item">
+                    <div class="left">
+                        <div class="medal">7</div>
+                        <div class="name">Lucas</div>
+                    </div>
+                    <div class="pointos">470</div>
+                </div>
+
+                <div class="item">
+                    <div class="left">
+                        <div class="medal">8</div>
+                        <div class="name">Marina</div>
+                    </div>
+                    <div class="pointos">460</div>
+                </div>
+            </div>
+        </div>
+
+        
+        
+
+    </div>
+</div>
+
+</body>
+</html>

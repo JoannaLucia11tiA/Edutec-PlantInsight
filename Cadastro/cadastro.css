@@ -1,0 +1,166 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    display: flex;
+    width: 1000px;
+    background: white;
+    overflow: hidden;
+}
+
+/* ------- LEFT ------- */
+.left {
+    width: 50%;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.titulo {
+    width: 100%;
+    max-width: 350px;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: var(--cinza-escuro);
+}
+
+/* FORM */
+.form {
+    width: 100%;
+    max-width: 350px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form input {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #cfcfcf;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: .2s;
+    margin-bottom: 10px;      /* inputs mais próximos */
+}
+
+.form input:focus {
+    border-color: #2f80ed;
+}
+
+/* mensagens de erro */
+.erro {
+    font-size: 12px;
+    color: red;
+    margin-top: -10px;
+    margin-bottom: 10px;
+    height: 14px;
+}
+
+/* ------- SENHA ------- */
+.input-senha,
+.conf {
+    position: relative;
+    width: 100%;
+    max-width: 350px;
+    margin-bottom: 10px;    /* inputs mais próximos */
+}
+
+.input-senha input,
+.conf input {
+    width: 100%;
+    padding: 14px;
+    padding-right: 45px;     /* espaço para o olho */
+}
+
+.olho-icon {
+    width: 24px;
+    position: absolute;
+    right: 14px;
+    top: 50%;                /* centraliza verticalmente */
+    transform: translateY(-50%);
+    cursor: pointer;
+    opacity: .7;
+}
+
+.olho-icon:hover {
+    opacity: 1;
+}
+
+/* ------- BOTÃO ------- */
+.btn {
+    background: #2d492f;
+    border: none;
+    color: white;
+    padding: 13px;
+    border-radius: 6px;
+    font-size: 15px;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: #1f341f;
+}
+
+/* ------- LINHA / LOGIN ------- */
+.linha-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.linha {
+    width: 90px;
+    height: 2px;
+    background: #2d492f;    /* verde */
+}
+
+.linha-box a {
+    color: #2d492f;         /* login agora verde */
+    font-size: 12px;
+    text-decoration: none;
+}
+
+.linha-box a:hover {
+    text-decoration: underline;
+}
+
+/* ------- RIGHT ------- */
+.right {
+    width: 50%;
+    background: white;
+}
+
+.right img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.logo-ancora {
+    position: fixed;
+    top: 20px;  
+    left: 20px;  
+    z-index: 999;
+}
+
+.logo-ancora img {
+    width: 45px;
+}

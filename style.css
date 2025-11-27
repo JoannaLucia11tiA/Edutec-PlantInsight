@@ -52,6 +52,10 @@ header {
         color: var(--azul-cadete);
     }
 
+    a:hover{
+        color: #37598A;
+    }
+
     .voltar-home {
         display: flex;
         align-items: center;
@@ -219,7 +223,6 @@ header {
         width: fit-content;
         font-weight: 600;
     }
-}
 
 .sites {
     display: flex;

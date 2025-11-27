@@ -34,6 +34,11 @@ header{
         text-decoration: none;
         color: var(--azul-cadete);
     }
+
+    a:hover{
+        color: #37598A;
+    }
+
     .voltar-home{
         display: flex;
         align-items: center;
@@ -148,14 +153,37 @@ header{
         margin-left: 0.6rem;
     }
 }
+.informacoes{
+    display: flex;
+    gap: 1rem;
 
+
+
+    .pontos{
+        margin-top: 4rem;
+        justify-content: center;
+    align-items: baseline;
+    padding: 0.7rem;
+    padding-top: 0.9rem;
+    margin-top: 4rem;
+    background-color: var(--branco);
+    width: 13rem;
+    border-radius: 10rem;
+    h2{
+        color: var(--azul-fases);
+        font-weight: 800;
+        margin-left: 0.6rem;
+
+    }
+    }
+}
 .vinte-fases {
     display: flex;
     flex-direction: column;
     margin-top: 1.7rem;
 }
 
- 
+
 
 #popup1 {
     position: fixed;
@@ -259,12 +287,29 @@ header{
     font-size: 17px;
     cursor: pointer;
   }
+
+  .popup-ctzsair button:hover {
+    color: #FFF;
+    background-color: var(--verde-escurin);
+  }
   
   .popup-ctzsair .espaco {
     margin-right: 1.5rem;
   }
-  
-  .popup-ctzsair button:hover {
-    background-color: #f0f0f0;
-  }
    
+.leaderboardbutton button{
+    position: fixed;
+                bottom: 20px;
+                right: 80px;
+                z-index: 999;
+
+                background:#98CF02;
+                border: none;
+                padding: 1.5rem;
+                padding-inline: 2rem;
+                border-radius: 2rem;
+                color: #fff;
+                font-size: 1.3rem;
+                font-weight: 700;
+                cursor: pointer;
+}

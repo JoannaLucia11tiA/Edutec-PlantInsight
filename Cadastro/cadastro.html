@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="cadastro.css">
+    <script src="cadastro.js" defer></script>
+    </head>
+<body>
+
+<div class="container">
+
+    <div class="left">
+        <h2 class="titulo">Cadastrar-se</h2>
+        <form class="form">
+
+            <input type="text" id="email" placeholder="Email">
+            <p id="erro-email" class="erro"></p>
+
+            <div class="input-senha">
+                <input type="password" id="senha" placeholder="Password">
+                <img src="./olhofechado.png" id="toggleSenha" class="olho-icon">
+            </div>
+
+            <p id="erro-senha" class="erro"></p> <div class="conf">
+                <input type="password" id="confirmar" placeholder="Confirm password">
+                <img src="./olhofechado.png" id="toggleConfirmar" class="olho-icon">
+            </div>
+            <p id="erro-confirmar" class="erro"></p> <button class="btn">Cadastrar</button>
+
+            <div class="linha-box">
+                <div class="linha"></div>
+                <a href="../Login/login.html" class="login">login</a>
+                <div class="linha"></div>
+            </div>
+            </form>
+    </div>
+
+    <div class="right">
+        <img src="planta.png" alt="Plantas">
+    </div>
+    </div>
+
+    <div class="logo-ancora">
+        <div class="voltar-home-debaixo">
+            <a href="/index.html">
+                <img src="../Logonavegador.png" alt="Logo do PlantInsight">
+            </a>
+        </div>
+    </div>
+</body>
+</html>

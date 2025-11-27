@@ -1,0 +1,183 @@
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+    font-family: Arial, sans-serif; 
+}
+
+:root { 
+    --branco: #ffffff; 
+    --cinza-escuro: #333; 
+    --cinza-medio: #444; 
+    --cinza: #777; 
+    --cinza-claro: #cecece; 
+    --verde: #365d38; 
+    --vermelho: #e74c3c; 
+    --preto: rgba(231, 76, 60, 0.06); 
+}
+
+body { 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    min-height: 100vh; 
+    background: var(--branco); 
+}
+
+.container { 
+    display: flex; 
+    width: 1000px; 
+    background: var(--branco); 
+}
+
+.left { 
+    width: 50%; 
+    padding: 40px 50px; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+}
+
+.carinha { 
+    width: 280px; 
+    margin-bottom: 50px; 
+}
+
+.titulo { 
+    width: 100%; 
+    max-width: 350px; 
+    font-size: 18px; 
+    font-weight: bold; 
+    margin-bottom: 15px; 
+    color: var(--cinza-escuro); 
+}
+
+.form { 
+    width: 100%; 
+    max-width: 350px; 
+    display: flex; 
+    flex-direction: column; 
+    gap: 15px; 
+}
+
+.form input { 
+    padding: 14px; 
+    border-radius: 6px; 
+    border: 1px solid var(--cinza-claro); 
+    font-size: 14px; 
+}
+
+.esqueci { 
+    font-size: 12px; 
+    color: var(--cinza-medio); 
+    text-align: right; 
+    text-decoration: none; 
+    margin-top: -10px; 
+}
+
+.btn { 
+    background: var(--verde); 
+    border: none; 
+    color: var(--branco); 
+    padding: 13px; 
+    border-radius: 6px; 
+    font-size: 15px; 
+    margin-top: 10px; 
+    cursor: pointer; 
+}
+
+.linha-box { 
+    display: flex; 
+    align-items: center; 
+    gap: 15px; 
+    margin-top: 20px; 
+}
+
+.linha { 
+    width: 90px; 
+    height: 2px; 
+    background: var(--verde); 
+}
+
+.linha-box span { 
+    color: var(--cinza); 
+    font-size: 12px; 
+}
+
+.right { 
+    width: 50%; 
+}
+
+.right img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+}
+
+.erro { 
+    color: var(--vermelho); 
+    font-size: 12px; 
+    margin-top: -10px; 
+    margin-bottom: 5px; 
+    display: none; 
+}
+
+.input-senha { 
+    position: relative; 
+    width: 100%; 
+}
+
+.input-senha input { 
+    width: 100%; 
+    padding: 14px; 
+    padding-right: 50px; 
+    border-radius: 6px; 
+    border: 1px solid var(--cinza-claro); 
+    font-size: 14px; 
+    box-sizing: border-box; 
+}
+
+.input-invalido { 
+    border-color: var(--vermelho) !important; 
+    box-shadow: 0 0 0 3px var(--preto); 
+}
+
+.olho-icon { 
+    position: absolute; 
+    right: 14px; 
+    top: 50%; 
+    transform: translateY(-50%); 
+    width: 28px; 
+    height: 28px; 
+    cursor: pointer; 
+    opacity: 0.6; 
+}
+
+.olho-icon:hover { 
+    opacity: 1; 
+}
+
+.logo-ancora {
+    position: fixed;
+    top: 20px;   
+    left: 20px;  
+    z-index: 999;
+}
+
+.logo-ancora img {
+    width: 45px; 
+}
+
+
+.cadastro-link {
+    color: var(--cinza);
+    font-size: 12px;
+    text-decoration: none;
+}
+
+.cadastro-link:hover {
+    text-decoration: underline;
+}
+
+
+

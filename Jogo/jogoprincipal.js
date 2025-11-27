@@ -14,7 +14,9 @@ function mostrarPopup2() {
 function fecharPopup2() {
   document.getElementById("popup2").style.display = "none";
 }
-
+if (!localStorage.getItem("Pontosplayer")) {
+  localStorage.setItem("Pontosplayer", 300);
+}
 document.addEventListener("DOMContentLoaded", () => {
   let destinoSaida = null; // Variável para guardar para onde o usuário quer ir
   let limparProgresso = false; // Flag para saber se precisa limpar o progresso
@@ -109,3 +111,43 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+//----------------------------------------------------------------
+// Atualiza os pontos quando a página carregar
+document.addEventListener("DOMContentLoaded", () => {
+  let pontos = Number(localStorage.getItem("Pontosplayer"));
+
+  // Se ainda não existir, define como 300
+  if (!pontos) {
+      pontos = 300;
+      localStorage.setItem("Pontosplayer", 300);
+  }
+
+  // Atualiza o texto no HTML
+  document.getElementById("pontos").textContent = "Pontos: " + pontos;
+});
+
+
+// Função para atualizar os pontos no HTML sempre que mudar
+function atualizarPontos() {
+  let pontos = Number(localStorage.getItem("Pontosplayer"));
+  document.getElementById("pontos").textContent = "Pontos: " + pontos;
+}
+
+
+// Exemplo de função para adicionar pontos (caso use):
+function adicionarPontos(qtde) {
+  let pontos = Number(localStorage.getItem("Pontosplayer")) || 300;
+  pontos += qtde;
+  localStorage.setItem("Pontosplayer", pontos);
+  atualizarPontos();
+}
+
+
+// Exemplo de função para remover pontos (caso perca vida):
+function removerPontos(qtde) {
+  let pontos = Number(localStorage.getItem("Pontosplayer")) || 300;
+  pontos -= qtde;
+  if (pontos < 0) pontos = 0; // evita negativo
+  localStorage.setItem("Pontosplayer", pontos);
+  atualizarPontos();
+}

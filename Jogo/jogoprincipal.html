@@ -20,6 +20,7 @@
         <a href="../Carrossel/carrossel.html" class="sair limpar-local"><h2>Conteúdos</h2></a>
         <a href="./jogojogar.html"><h2 class="pagina-aberta sair limpar-local">Jogo</h2></a>
         <a href="../Sobre Nós/sobrenos.html" class="sair limpar-local"><h2>Sobre nós</h2></a>
+        <a href="../Login/login.html" class="sair limpar-local"><h2>Login</h2></a>
         </div>
     </header>
 
@@ -27,7 +28,9 @@
         <div class="popup-regras">
           <span class="fechar" onclick="fecharPopup1()">X</span>
           <p>Objetivo: Manter a planta <br>
-            viva durante as 20 fases.</p>
+            viva durante as 20 fases. <br>
+            Cada fase vale 10 pontos <br>
+            e cada vida 100.</p>
         </div>
       </div>
     
@@ -70,12 +73,18 @@
                     <div class="bloqueado botao-fase nivel-19" data-fase="19"><a href=""><img src="../Jogo/assets.jogos/cadeado.png" alt="cadeado"></a></div>
                     <div class="bloqueado botao-fase nivel-20" data-fase="20"><a href=""><img src="../Jogo/assets.jogos/cadeado.png" alt="cadeado"></a></div>
                 </div>
+               
+                <div class="informacoes">
                 <div class="vida">
                     <h2>Vida: </h2>
                     <img class="vida-0" id="heart1" src="../Jogo/assets.jogos/corcaovida.png" alt="coração de vida">
                     <img class="vidas-1" id="heart2" src="../Jogo/assets.jogos/corcaovida.png" alt="coração de vida">
                     <img class="vidas-2"  id="heart3" src="../Jogo/assets.jogos/corcaovida.png" alt="coração de vida">
                 </div>
+                <div class="pontos">
+                    <h2 id="pontos">Pontos: 0</h2>
+                </div>
+            </div>
             </div>
         </div>
         <script src="./vidas.js"></script>
@@ -91,6 +100,12 @@
                         heart3.src = vidasAtuais < 3 ? "assets.jogos/perdeucoracao.png":"assets.jogos/corcaovida.png"
 
         </script>
+
+        <a href="../Rank Jogo/Rank.html"><button class="leaderboardbutton">Leaderboard</button></a>
+        
         <script src="./jogoprincipal.js"></script>
+
+       
+        
 </body>
 </html>
