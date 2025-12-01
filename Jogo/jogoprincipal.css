@@ -270,7 +270,7 @@ header{
   
 
   .popup-ctzsair h3 {
-    color: var(--verde-escurin);
+    --verde-escurin: #598801;
     padding: 1.5rem;
     font-weight: 700;
     font-size: 20px;
@@ -296,6 +296,8 @@ header{
   .popup-ctzsair .espaco {
     margin-right: 1.5rem;
   }
+
+
    
 .leaderboardbutton button{
     position: fixed;
