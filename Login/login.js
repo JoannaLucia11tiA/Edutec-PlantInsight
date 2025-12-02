@@ -5,15 +5,13 @@ const erroEmail = document.getElementById("erro-email");
 const erroSenha = document.getElementById("erro-senha");
 const toggleSenha = document.getElementById("toggleSenha");
 
-// regex email
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-// regra de senha (mín. 6 caracteres)
 function senhaValida(s) {
     return s.length >= 6;
 }
 
-form.addEventListener("submit", (e) => {
+form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
     const email = emailInput.value.trim();
@@ -21,13 +19,11 @@ form.addEventListener("submit", (e) => {
 
     let temErro = false;
 
-    // reset
     erroEmail.style.display = "none";
     emailInput.classList.remove("input-invalido");
     erroSenha.style.display = "none";
     passwordInput.classList.remove("input-invalido");
 
-    // --- valida email ----
     if (email === "") {
         erroEmail.textContent = "Preencha o email!";
         erroEmail.style.display = "block";
@@ -40,7 +36,6 @@ form.addEventListener("submit", (e) => {
         temErro = true;
     }
 
-    // --- valida senha ----
     if (password === "") {
         erroSenha.textContent = "Preencha a senha!";
         erroSenha.style.display = "block";
@@ -55,11 +50,38 @@ form.addEventListener("submit", (e) => {
 
     if (temErro) return;
 
-    alert("Login realizado com sucesso!");
-    window.location.href = "../index.html";
+    const user = { email, password };
+
+    try {
+        const resposta = await fetch("http://localhost:3333/login", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ user })
+        });
+
+        const dados = await resposta.json();
+
+        if (dados.message) {
+            alert("Email ou senha incorretos.");
+            return;
+        }
+
+        const { id, name } = dados;
+
+        sessionStorage.setItem("user", JSON.stringify({ id, name }));
+
+        alert("Login realizado com sucesso!");
+
+        document.querySelector(".form").style.display = "none";
+
+        window.location.href = "../index.html";
+
+    } catch (error) {
+        alert("Erro no servidor. Tente novamente.");
+        console.error(error);
+    }
 });
 
-// limpar erros quando digitar
 emailInput.addEventListener("input", () => {
     erroEmail.style.display = "none";
     emailInput.classList.remove("input-invalido");
@@ -79,6 +101,3 @@ toggleSenha.addEventListener("click", () => {
         toggleSenha.src = "olhofechado.png";
     }
 });
-
-
-
